@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<base href="../">
+<title>Вечность — ритуальные услуги в Челябинске</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ground: #eef0f3;
+  --ink: #0b0c0e;
+  --accent: #1f2de6;
+  --col-width: 480px;
+  --col-left: 22%;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--ground);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+a { color: var(--ink); text-decoration: none; }
+a:hover { color: var(--accent); }
+
+img { display: block; max-width: 100%; }
+
+/* ——— HERO ——— */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) brightness(0.85);
+}
+
+.rail {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 56px;
+  background: var(--ink);
+  padding: 0 40px;
+}
+
+.hero .rail {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.rail.is-fixed {
+  position: fixed;
+  top: 0;
+  transform: none;
+}
+
+.rail__title {
+  font-weight: 300;
+  font-size: 22px;
+  color: var(--ground);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.rail__subtitle {
+  font-weight: 400;
+  font-size: 15px;
+  color: rgba(238, 240, 243, 0.6);
+  white-space: nowrap;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rail__cta {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--ground);
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  padding: 10px 24px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.rail__cta:hover {
+  color: #fff;
+  background: #1825c0;
+}
+
+/* ——— NARROW COLUMN ——— */
+.col {
+  width: var(--col-width);
+  margin-left: var(--col-left);
+  padding-top: 100px;
+  padding-bottom: 60px;
+}
+
+.section {
+  margin-bottom: 120px;
+}
+
+.section__heading {
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 1.2;
+  margin-bottom: 48px;
+  letter-spacing: -0.01em;
+}
+
+.section__heading em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+p {
+  margin-bottom: 1.2em;
+}
+
+/* ——— NAV LINKS (in rail on scroll) ——— */
+.rail__nav {
+  display: none;
+}
+
+.rail.is-fixed .rail__nav {
+  display: flex;
+  gap: 28px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rail.is-fixed .rail__subtitle {
+  display: none;
+}
+
+.rail__nav a {
+  color: rgba(238, 240, 243, 0.55);
+  font-size: 13px;
+  font-weight: 400;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.rail__nav a:hover,
+.rail__nav a.active {
+  color: var(--ground);
+}
+
+/* ——— SERVICES TABLE ——— */
+.svc-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.svc-table tr {
+  border-bottom: 1px solid rgba(11, 12, 14, 0.08);
+}
+
+.svc-table td {
+  padding: 16px 0;
+  vertical-align: top;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.svc-table td:first-child {
+  font-weight: 500;
+  width: 40%;
+  padding-right: 24px;
+}
+
+.svc-table td:last-child {
+  color: rgba(11, 12, 14, 0.7);
+}
+
+/* ——— PRICING / RECEIPT ——— */
+.receipt {
+  background: #fff;
+  padding: 40px 32px;
+  max-width: 100%;
+}
+
+.receipt__row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(11, 12, 14, 0.06);
+}
+
+.receipt__row:last-child {
+  border-bottom: none;
+}
+
+.receipt__name {
+  font-weight: 400;
+}
+
+.receipt__price {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.receipt__header {
+  font-weight: 500;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(11, 12, 14, 0.62);
+  margin-bottom: 20px;
+}
+
+/* ——— CATALOG STRIP (home) ——— */
+.strip {
+  display: flex;
+  gap: 3px;
+  overflow-x: auto;
+  margin-left: calc(-1 * var(--col-left));
+  margin-right: calc(-1 * (100vw - var(--col-left) - var(--col-width)));
+  width: 100vw;
+  padding: 0 40px;
+  scrollbar-width: none;
+}
+
+.strip::-webkit-scrollbar { display: none; }
+
+.strip__item {
+  flex: 0 0 auto;
+  height: 200px;
+  position: relative;
+}
+
+.strip__item img {
+  height: 100%;
+  width: auto;
+  display: block;
+  filter: grayscale(0.4);
+  transition: filter 0.3s;
+}
+
+.strip__item:hover img {
+  filter: grayscale(0);
+}
+
+.strip__item span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(11,12,14,0.7));
+}
+
+/* ——— ABOUT / SIDE FACTS ——— */
+.facts {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.fact {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.fact__label {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(11, 12, 14, 0.62);
+  width: 100px;
+  flex-shrink: 0;
+}
+
+.fact__value {
+  font-weight: 300;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+}
+
+/* ——— CONTACT ——— */
+.contact__sentence {
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 1.4;
+  margin-bottom: 32px;
+}
+
+.contact__links a {
+  display: inline-block;
+  margin-right: 32px;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.contact__links a:first-child {
+  color: var(--accent);
+}
+
+/* ——— CATALOG PAGE ——— */
+.filter-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-bottom: 48px;
+}
+
+.filter-links a {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(11, 12, 14, 0.62);
+}
+
+.filter-links a:hover,
+.filter-links a.active {
+  color: var(--ink);
+}
+
+.product-item {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(11, 12, 14, 0.06);
+}
+
+.product-item__img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #dfe1e5;
+}
+
+.product-item__info h3 {
+  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.product-item__info .price {
+  font-weight: 300;
+  font-size: 14px;
+  color: rgba(11, 12, 14, 0.62);
+}
+
+/* ——— SERVICES PAGE ——— */
+.service-block {
+  margin-bottom: 64px;
+}
+
+.service-block h3 {
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.service-block p {
+  font-size: 15px;
+  color: rgba(11, 12, 14, 0.7);
+  line-height: 1.65;
+}
+
+.service-block img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 16px;
+  filter: grayscale(0.3);
+}
+
+/* ——— ARTICLES PAGE ——— */
+.article-entry {
+  margin-bottom: 20px;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.article-entry strong {
+  font-weight: 500;
+}
+
+/* ——— ABOUT PAGE ——— */
+.about-stats {
+  margin-bottom: 56px;
+}
+
+.about-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.about-stat__label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(11, 12, 14, 0.62);
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.about-stat__value {
+  font-weight: 300;
+  font-size: 32px;
+  letter-spacing: -0.02em;
+}
+
+/* ——— CONTACTS PAGE ——— */
+.contacts-sentence {
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 1.35;
+  margin-bottom: 40px;
+}
+
+.contacts-links {
+  margin-bottom: 48px;
+}
+
+.contacts-links a {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.contacts-links a:first-child {
+  color: var(--accent);
+}
+
+.branches {
+  margin-top: 48px;
+}
+
+.branch {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.branch__district {
+  font-weight: 500;
+}
+
+.branch__address {
+  color: rgba(11, 12, 14, 0.62);
+}
+
+/* ——— FOOTER ——— */
+.footer {
+  padding: 40px;
+  font-size: 13px;
+  color: rgba(11, 12, 14, 0.62);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer a {
+  color: rgba(11, 12, 14, 0.62);
+  margin-left: 24px;
+}
+
+.footer a:hover {
+  color: var(--ink);
+}
+
+/* ——— SPACER for rail ——— */
+.rail-spacer {
+  height: 56px;
+  display: none;
+}
+
+.rail-spacer.visible {
+  display: block;
+}
+
+/* ——— PAGE VISIBILITY ——— */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ——— MOBILE ——— */
+@media (max-width: 768px) {
+  :root {
+    --col-width: 100%;
+    --col-left: 0;
+  }
+
+  .col {
+    margin-left: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 80px;
+  }
+
+  .rail {
+    padding: 0 20px;
+    height: 50px;
+  }
+
+  .rail__subtitle {
+    display: none;
+  }
+
+  .rail__title {
+    font-size: 16px;
+  }
+
+  .rail__cta {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .rail__nav {
+    gap: 16px;
+  }
+
+  .rail__nav a {
+    font-size: 12px;
+  }
+
+  .section__heading {
+    font-size: 26px;
+  }
+
+  .strip {
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+    padding: 0 20px;
+  }
+
+  .fact__value {
+    font-size: 22px;
+  }
+
+  .contacts-sentence {
+    font-size: 22px;
+  }
+
+  .about-stat__value {
+    font-size: 26px;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .footer a {
+    margin-left: 12px;
+  }
+
+  .product-item {
+    flex-direction: column;
+  }
+
+  .product-item__img {
+    width: 100%;
+    height: 180px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero" id="hero-section">
+  <img class="hero__photo" src="https://picsum.photos/id/505/1600/1000" alt="">
+  <div class="rail" id="rail">
+    <span class="rail__title">Вечность</span>
+    <span class="rail__subtitle">Ритуальные услуги в Челябинске с 1998 года</span>
+    <nav class="rail__nav">
+      <a href="#home">Главная</a>
+      <a href="#catalog">Каталог</a>
+      <a href="#services">Услуги</a>
+      <a href="#about">О нас</a>
+      <a href="#articles">Статьи</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="rail__cta" href="tel:+73512640056">Позвонить</a>
+  </div>
+</section>
+
+<div class="rail-spacer" id="rail-spacer"></div>
+
+<!-- HOME PAGE -->
+<div class="page active" id="page-home">
+  <div class="col">
+
+    <!-- Services Table -->
+    <div class="section">
+      <h2 class="section__heading">Что мы <em>делаем</em></h2>
+      <table class="svc-table" id="home-services"></table>
+    </div>
+
+    <!-- Pricing Receipt -->
+    <div class="section">
+      <h2 class="section__heading">Ориентировочная стоимость</h2>
+      <div class="receipt" id="home-receipt">
+        <div class="receipt__header">Товары и услуги</div>
+      </div>
+    </div>
+
+    <!-- Catalog Strip -->
+    <div class="section">
+      <h2 class="section__heading">Каталог</h2>
+    </div>
+  </div>
+  <div class="strip" id="home-strip"></div>
+  <div class="col">
+
+    <!-- About -->
+    <div class="section" style="margin-top: 80px;">
+      <h2 class="section__heading">О компании</h2>
+      <div class="facts" id="home-facts"></div>
+      <p id="home-about"></p>
+    </div>
+
+    <!-- Contact -->
+    <div class="section">
+      <p class="contact__sentence" id="home-contact-sentence"></p>
+      <div class="contact__links" id="home-contact-links"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CATALOG PAGE -->
+<div class="page" id="page-catalog">
+  <div class="col">
+    <div class="section">
+      <h2 class="section__heading">Каталог</h2>
+      <div class="filter-links" id="catalog-filters"></div>
+      <div id="catalog-products"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES PAGE -->
+<div class="page" id="page-services">
+  <div class="col">
+    <div class="section">
+      <h2 class="section__heading">Наши <em>услуги</em></h2>
+      <div id="services-list"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT PAGE -->
+<div class="page" id="page-about">
+  <div class="col">
+    <div class="section">
+      <h2 class="section__heading">О компании <em>Вечность</em></h2>
+      <div class="about-stats" id="about-stats"></div>
+      <div id="about-text"></div>
+      <div id="about-branches" style="margin-top: 56px;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLES PAGE -->
+<div class="page" id="page-articles">
+  <div class="col">
+    <div class="section">
+      <h2 class="section__heading">Статьи</h2>
+      <div id="articles-list"></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACTS PAGE -->
+<div class="page" id="page-contacts">
+  <div class="col">
+    <div class="section">
+      <p class="contacts-sentence" id="contacts-sentence"></p>
+      <div class="contacts-links" id="contacts-links"></div>
+      <div class="branches" id="contacts-branches"></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span id="footer-text"></span>
+  <nav id="footer-nav">
+    <a href="#home">Главная</a>
+    <a href="#catalog">Каталог</a>
+    <a href="#services">Услуги</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  // ——— DATA STORE ———
+  let company = null;
+  let services = null;
+  let catalog = null;
+  let articles = null;
+
+  // ——— FETCH DATA ———
+  async function loadData() {
+    const [compRes, svcRes, catRes, artRes] = await Promise.all([
+      fetch('data/company.json'),
+      fetch('data/services.json'),
+      fetch('data/catalog.json'),
+      fetch('data/articles.json')
+    ]);
+    company = await compRes.json();
+    services = await svcRes.json();
+    catalog = await catRes.json();
+    articles = await artRes.json();
+    renderAll();
+    handleRoute();
+  }
+
+  // ——— RAIL SCROLL BEHAVIOR ———
+  const rail = document.getElementById('rail');
+  const heroSection = document.getElementById('hero-section');
+  const railSpacer = document.getElementById('rail-spacer');
+  let railFixed = false;
+
+  function onScroll() {
+    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+    const scrollY = window.scrollY;
+
+    if (scrollY >= heroBottom - 56) {
+      if (!railFixed) {
+        rail.classList.add('is-fixed');
+        railSpacer.classList.add('visible');
+        heroSection.style.marginBottom = '0';
+        railFixed = true;
+      }
+    } else {
+      if (railFixed) {
+        rail.classList.remove('is-fixed');
+        railSpacer.classList.remove('visible');
+        railFixed = false;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // ——— RENDER ———
+  function renderAll() {
+    renderHomeServices();
+    renderHomeReceipt();
+    renderHomeStrip();
+    renderHomeFacts();
+    renderHomeAbout();
+    renderHomeContact();
+    renderCatalog();
+    renderServices();
+    renderAbout();
+    renderArticles();
+    renderContacts();
+    renderFooter();
+  }
+
+  function renderHomeServices() {
+    const el = document.getElementById('home-services');
+    el.innerHTML = services.map(s =>
+      `<tr><td>${s.name}</td><td>${s.description}</td></tr>`
+    ).join('');
+  }
+
+  function renderHomeReceipt() {
+    const el = document.getElementById('home-receipt');
+    const items = [];
+    catalog.forEach(cat => {
+      cat.products.forEach(p => {
+        if (p.price && p.price !== 'По запросу') {
+          items.push({ name: p.name, price: p.price + ' \u20BD' });
+        }
+      });
+    });
+    // Also add services with prices
+    services.forEach(s => {
+      if (s.price) {
+        items.push({ name: s.name, price: s.price + ' \u20BD' });
+      }
+    });
+    // Show a curated selection
+    const shown = items.slice(0, 12);
+    el.innerHTML += shown.map(i =>
+      `<div class="receipt__row"><span class="receipt__name">${i.name}</span><span class="receipt__price">${i.price}</span></div>`
+    ).join('');
+  }
+
+  function renderHomeStrip() {
+    const el = document.getElementById('home-strip');
+    const items = [];
+    catalog.forEach(cat => {
+      cat.products.forEach(p => {
+        if (p.image) items.push(p);
+      });
+    });
+    el.innerHTML = items.map(p =>
+      `<div class="strip__item"><img src="${p.image}" alt="${p.name}"><span>${p.name}</span></div>`
+    ).join('');
+  }
+
+  function renderHomeFacts() {
+    const el = document.getElementById('home-facts');
+    const stats = company.stats;
+    const labels = { years: 'Лет работы', branches: 'Филиалов', availability: 'Доступность', products: 'Товаров' };
+    el.innerHTML = Object.keys(stats).map(k =>
+      `<div class="fact"><span class="fact__label">${labels[k] || k}</span><span class="fact__value">${stats[k]}</span></div>`
+    ).join('');
+  }
+
+  function renderHomeAbout() {
+    document.getElementById('home-about').textContent = company.about;
+  }
+
+  function renderHomeContact() {
+    const phone = company.phones[0];
+    document.getElementById('home-contact-sentence').innerHTML =
+      'Мы рядом, когда это нужно. Звоните в любое время\u00a0\u2014 <em style="font-style:normal;color:var(--accent)">круглосуточно</em>.';
+    document.getElementById('home-contact-links').innerHTML =
+      `<a href="tel:${phone.tel}">${phone.number}</a><a href="mailto:${company.email}">${company.email}</a>`;
+  }
+
+  // ——— CATALOG PAGE ———
+  let currentFilter = 'all';
+
+  function renderCatalog() {
+    const filtersEl = document.getElementById('catalog-filters');
+    filtersEl.innerHTML = `<a href="#" data-filter="all" class="active">Все</a>` +
+      catalog.map(c => `<a href="#" data-filter="${c.category}">${c.categoryName}</a>`).join('');
+
+    filtersEl.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A') {
+        e.preventDefault();
+        currentFilter = e.target.dataset.filter;
+        filtersEl.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+        e.target.classList.add('active');
+        renderCatalogProducts();
+      }
+    });
+
+    renderCatalogProducts();
+  }
+
+  function renderCatalogProducts() {
+    const el = document.getElementById('catalog-products');
+    let products = [];
+    catalog.forEach(cat => {
+      if (currentFilter === 'all' || cat.category === currentFilter) {
+        cat.products.forEach(p => {
+          products.push(p);
+        });
+      }
+    });
+    el.innerHTML = products.map(p => {
+      const imgSrc = p.image || '';
+      const imgTag = imgSrc
+        ? `<img class="product-item__img" src="${imgSrc}" alt="${p.name}">`
+        : `<div class="product-item__img" style="display:flex;align-items:center;justify-content:center;font-size:12px;color:rgba(11,12,14,0.25);">Нет фото</div>`;
+      return `<div class="product-item">${imgTag}<div class="product-item__info"><h3>${p.name}</h3><span class="price">${p.price}${p.price !== 'По запросу' ? ' \u20BD' : ''}</span></div></div>`;
+    }).join('');
+  }
+
+  // ——— SERVICES PAGE ———
+  function renderServices() {
+    const el = document.getElementById('services-list');
+    el.innerHTML = services.map(s => {
+      const img = s.image ? `<img src="${s.image}" alt="${s.name}">` : '';
+      return `<div class="service-block">${img}<h3>${s.name}</h3><p>${s.description}</p></div>`;
+    }).join('');
+  }
+
+  // ——— ABOUT PAGE ———
+  function renderAbout() {
+    const statsEl = document.getElementById('about-stats');
+    const stats = company.stats;
+    const labels = { years: 'Лет работы', branches: 'Филиалов', availability: 'Доступность', products: 'Товаров' };
+    statsEl.innerHTML = Object.keys(stats).map(k =>
+      `<div class="about-stat"><span class="about-stat__label">${labels[k] || k}</span><span class="about-stat__value">${stats[k]}</span></div>`
+    ).join('');
+
+    document.getElementById('about-text').innerHTML = `<p>${company.about}</p>`;
+
+    const branchesEl = document.getElementById('about-branches');
+    branchesEl.innerHTML = '<h3 style="font-weight:500;font-size:18px;margin-bottom:24px;">Наши офисы</h3>' +
+      company.branches.map(b =>
+        `<div class="branch"><span class="branch__district">${b.district}</span><br><span class="branch__address">${b.address} \u2014 ${b.note}</span></div>`
+      ).join('');
+  }
+
+  // ——— ARTICLES PAGE ———
+  function renderArticles() {
+    const el = document.getElementById('articles-list');
+    el.innerHTML = articles.map(a =>
+      `<div class="article-entry"><strong>${a}</strong>. Подробная информация о теме \u00ab${a.toLowerCase()}\u00bb \u2014 всё, что важно знать.</div>`
+    ).join('');
+  }
+
+  // ——— CONTACTS PAGE ———
+  function renderContacts() {
+    const phone = company.phones[0];
+    document.getElementById('contacts-sentence').innerHTML =
+      'Позвоните нам или напишите. Мы работаем <em style="font-style:normal;color:var(--accent)">круглосуточно</em>, потому что горе не выбирает время.';
+
+    document.getElementById('contacts-links').innerHTML =
+      `<a href="tel:${phone.tel}">${phone.number}</a>` +
+      (company.phones[1] ? `<a href="tel:${company.phones[1].tel}">${company.phones[1].number}</a>` : '') +
+      `<a href="mailto:${company.email}">${company.email}</a>`;
+
+    const branchesEl = document.getElementById('contacts-branches');
+    branchesEl.innerHTML = '<h3 style="font-weight:500;font-size:16px;margin-bottom:20px;">Офисы</h3>' +
+      company.branches.map(b =>
+        `<div class="branch"><span class="branch__district">${b.district}</span><br><span class="branch__address">${b.address} \u2014 ${b.note}</span></div>`
+      ).join('');
+  }
+
+  // ——— FOOTER ———
+  function renderFooter() {
+    document.getElementById('footer-text').textContent =
+      company.fullName + ' \u00b7 ' + company.city + ' \u00b7 ' + new Date().getFullYear();
+  }
+
+  // ——— HASH ROUTING ———
+  function handleRoute() {
+    const hash = window.location.hash.replace('#', '') || 'home';
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(p => p.classList.remove('active'));
+
+    const target = document.getElementById('page-' + hash);
+    if (target) {
+      target.classList.add('active');
+    } else {
+      document.getElementById('page-home').classList.add('active');
+    }
+
+    // Update nav active state
+    document.querySelectorAll('.rail__nav a').forEach(a => {
+      const aHash = a.getAttribute('href').replace('#', '');
+      a.classList.toggle('active', aHash === hash);
+    });
+
+    // Show/hide hero based on page
+    const hero = document.getElementById('hero-section');
+    if (hash === 'home') {
+      hero.style.display = '';
+    } else {
+      hero.style.display = 'none';
+      // Force rail to fixed when not on home
+      rail.classList.add('is-fixed');
+      railSpacer.classList.add('visible');
+    }
+
+    window.scrollTo(0, 0);
+  }
+
+  window.addEventListener('hashchange', handleRoute);
+
+  // ——— INIT ———
+  loadData();
+
+})();
+</script>
+</body>
+</html>

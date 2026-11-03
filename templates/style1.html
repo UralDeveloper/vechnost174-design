@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<base href="../">
+<title>ВЕЧНОСТЬ — ритуальные услуги в Челябинске</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #E30613;
+  --white: #FFFFFF;
+  --near-black: #111111;
+  --dark-grey: #1C1C1C;
+  --mid-grey: #2A2A2A;
+  --light-grey: #F0F0F0;
+  --text-grey: #999999;
+
+  --font-display: 'Big Shoulders Display', sans-serif;
+  --font-body: 'Public Sans', sans-serif;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--near-black);
+  background: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button, input, textarea {
+  font-family: var(--font-body);
+  border: none;
+  outline: none;
+  background: none;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+}
+
+/* ===================== PAGE TRANSITIONS ===================== */
+
+.page {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+.page.visible {
+  opacity: 1;
+}
+
+/* ===================== HERO ===================== */
+
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  background: var(--red);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px 32px;
+  overflow: hidden;
+}
+
+.hero-nav {
+  position: absolute;
+  top: 28px;
+  right: 32px;
+  display: flex;
+  gap: 28px;
+  z-index: 10;
+}
+
+.hero-nav a {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hero-nav a:hover {
+  opacity: 1;
+}
+
+.hero-word {
+  width: 80%;
+  max-width: 1400px;
+}
+
+.hero-word .line1 {
+  font-size: 15vw;
+  color: var(--white);
+}
+
+.hero-word .line2 {
+  font-size: 15vw;
+  color: var(--near-black);
+}
+
+.hero-bottom {
+  position: absolute;
+  bottom: 28px;
+  left: 32px;
+  right: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.hero-tagline {
+  font-size: 15px;
+  color: var(--white);
+  opacity: 0.8;
+  max-width: 300px;
+  line-height: 1.4;
+}
+
+.hero-phone {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 28px;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-align: right;
+}
+
+.hero-phone a {
+  display: block;
+  transition: opacity 0.2s;
+}
+
+.hero-phone a:hover {
+  opacity: 0.7;
+}
+
+.hero-phone .label {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 13px;
+  opacity: 0.6;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-bottom: 4px;
+}
+
+/* ===================== SERVICES (home) ===================== */
+
+.section-services {
+  background: var(--near-black);
+  padding: 100px 32px;
+  min-height: 80vh;
+}
+
+.section-services .section-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-grey);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 60px;
+}
+
+.services-list-home .service-line {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 5vw;
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 1.1;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+  transition: color 0.25s, padding-left 0.3s;
+  position: relative;
+}
+
+.services-list-home .service-line:first-child {
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.services-list-home .service-line:hover {
+  color: var(--red);
+  padding-left: 20px;
+}
+
+.services-list-home .service-line .service-desc {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--text-grey);
+  text-transform: none;
+  letter-spacing: 0;
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  line-height: 1.5;
+  padding: 0;
+}
+
+.services-list-home .service-line.open .service-desc {
+  max-height: 120px;
+  padding: 8px 0 4px;
+}
+
+/* ===================== CATALOG BANDS (home) ===================== */
+
+.section-catalog-bands {
+  background: var(--white);
+  padding: 0;
+}
+
+.catalog-band {
+  position: relative;
+  height: 40vh;
+  min-height: 280px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+}
+
+.catalog-band:nth-child(even) {
+  justify-content: flex-end;
+}
+
+.catalog-band-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+  filter: brightness(0.45);
+}
+
+.catalog-band:hover .catalog-band-bg {
+  transform: scale(1.04);
+}
+
+.catalog-band-name {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 8vw;
+  color: var(--white);
+  text-transform: uppercase;
+  padding: 32px 40px;
+  line-height: 0.9;
+}
+
+.catalog-band-count {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--white);
+  opacity: 0.6;
+  text-transform: none;
+  letter-spacing: 0;
+  display: block;
+  margin-top: 8px;
+}
+
+/* ===================== ABOUT (home) ===================== */
+
+.section-about {
+  background: var(--dark-grey);
+  color: var(--white);
+  padding: 120px 32px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.about-stat-item .stat-number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 7vw;
+  line-height: 0.85;
+  color: var(--red);
+  text-transform: uppercase;
+}
+
+.about-stat-item .stat-label {
+  font-size: 14px;
+  color: var(--text-grey);
+  margin-top: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.about-text {
+  font-size: 22px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+  max-width: 800px;
+}
+
+.about-text .company-name-inline {
+  color: var(--red);
+  font-weight: 600;
+}
+
+/* ===================== BRANCHES (home) ===================== */
+
+.section-branches {
+  background: var(--red);
+  padding: 100px 32px;
+}
+
+.section-branches .section-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--near-black);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 60px;
+  opacity: 0.6;
+}
+
+.branch-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+.branch-row:first-of-type {
+  border-top: 1px solid rgba(0,0,0,0.15);
+}
+
+.branch-address {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(24px, 4vw, 56px);
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.branch-district {
+  font-size: 14px;
+  color: var(--near-black);
+  text-align: right;
+  opacity: 0.7;
+  flex-shrink: 0;
+  margin-left: 20px;
+}
+
+/* ===================== CTA (home) ===================== */
+
+.section-cta {
+  background: var(--near-black);
+  padding: 120px 32px;
+  text-align: center;
+}
+
+.cta-label {
+  font-size: 14px;
+  color: var(--text-grey);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 32px;
+}
+
+.cta-phone {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(40px, 10vw, 140px);
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 0.9;
+  display: block;
+  transition: color 0.25s;
+}
+
+.cta-phone:hover {
+  color: var(--red);
+}
+
+.cta-hours {
+  font-size: 16px;
+  color: var(--text-grey);
+  margin-top: 24px;
+}
+
+/* ===================== CATALOG PAGE ===================== */
+
+.catalog-header {
+  background: var(--red);
+  padding: 140px 32px 80px;
+}
+
+.catalog-header h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(48px, 10vw, 120px);
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 0.85;
+}
+
+.catalog-filters {
+  background: var(--near-black);
+  padding: 28px 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.catalog-filter-link {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-grey);
+  cursor: pointer;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  padding: 6px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.catalog-filter-link:hover,
+.catalog-filter-link.active {
+  color: var(--white);
+}
+
+.catalog-filter-link.active {
+  border-bottom: 2px solid var(--red);
+}
+
+.catalog-products {
+  background: var(--dark-grey);
+  padding: 60px 32px 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2px;
+}
+
+.product-card {
+  background: var(--mid-grey);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card-img {
+  width: 100%;
+  aspect-ratio: 1;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--near-black);
+}
+
+.product-card-img.no-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 32px;
+  color: rgba(255,255,255,0.08);
+  text-transform: uppercase;
+}
+
+.product-card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-card-name {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.product-card-price {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--red);
+  text-transform: uppercase;
+}
+
+/* ===================== SERVICES PAGE ===================== */
+
+.services-header {
+  background: var(--near-black);
+  padding: 140px 32px 80px;
+}
+
+.services-header h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(48px, 10vw, 120px);
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 0.85;
+}
+
+.service-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 50vh;
+}
+
+.service-block:nth-child(even) {
+  direction: rtl;
+}
+
+.service-block:nth-child(even) > * {
+  direction: ltr;
+}
+
+.service-block-image {
+  background-size: cover;
+  background-position: center;
+  background-color: var(--mid-grey);
+  min-height: 300px;
+}
+
+.service-block-text {
+  padding: 80px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.service-block:nth-child(odd) .service-block-text {
+  background: var(--dark-grey);
+  color: var(--white);
+}
+
+.service-block:nth-child(even) .service-block-text {
+  background: var(--white);
+  color: var(--near-black);
+}
+
+.service-block:nth-child(3n) .service-block-text {
+  background: var(--red);
+  color: var(--white);
+}
+
+.service-block-text h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 52px);
+  text-transform: uppercase;
+  line-height: 0.9;
+  margin-bottom: 24px;
+}
+
+.service-block-text p {
+  font-size: 17px;
+  line-height: 1.6;
+  opacity: 0.85;
+  max-width: 480px;
+}
+
+.service-block-text .service-price {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 28px;
+  margin-top: 20px;
+}
+
+/* ===================== ABOUT PAGE ===================== */
+
+.about-header {
+  background: var(--dark-grey);
+  padding: 140px 32px 80px;
+}
+
+.about-header h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(48px, 10vw, 120px);
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 0.85;
+}
+
+.about-page-stats {
+  background: var(--red);
+  padding: 80px 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  text-align: center;
+}
+
+.about-page-stat .big-num {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(48px, 8vw, 100px);
+  color: var(--white);
+  line-height: 0.85;
+  text-transform: uppercase;
+}
+
+.about-page-stat .big-label {
+  font-size: 14px;
+  color: var(--near-black);
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+}
+
+.about-page-body {
+  background: var(--white);
+  padding: 100px 32px;
+}
+
+.about-page-body .text-wide {
+  font-size: 24px;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--near-black);
+}
+
+/* ===================== ARTICLES PAGE ===================== */
+
+.articles-header {
+  background: var(--near-black);
+  padding: 140px 32px 80px;
+}
+
+.articles-header h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(48px, 10vw, 120px);
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 0.85;
+}
+
+.articles-list {
+  background: var(--white);
+  padding: 80px 32px 120px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.article-item {
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.article-item:first-child {
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.article-item .article-title {
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--near-black);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.article-item .article-title:hover {
+  color: var(--red);
+}
+
+/* ===================== CONTACTS PAGE ===================== */
+
+.contacts-header {
+  background: var(--red);
+  padding: 140px 32px 80px;
+}
+
+.contacts-header h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(48px, 10vw, 120px);
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 0.85;
+}
+
+.contacts-addresses {
+  background: var(--near-black);
+  padding: 80px 32px;
+}
+
+.contact-addr-row {
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.contact-addr-row:first-child {
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.contact-addr-street {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(20px, 4vw, 52px);
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.contact-addr-note {
+  font-size: 14px;
+  color: var(--text-grey);
+  flex-shrink: 0;
+}
+
+.contacts-info {
+  background: var(--dark-grey);
+  padding: 80px 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.contacts-phones {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contacts-phones a {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(28px, 5vw, 56px);
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.contacts-phones a:hover {
+  color: var(--red);
+}
+
+.contacts-email {
+  font-size: 18px;
+  color: var(--text-grey);
+  margin-top: 12px;
+}
+
+.contacts-email a:hover {
+  color: var(--white);
+}
+
+.contacts-hours-block {
+  font-size: 16px;
+  color: var(--text-grey);
+}
+
+.contacts-hours-block .hours-label {
+  font-weight: 600;
+  color: var(--white);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.contacts-hours-block .hours-line {
+  margin-bottom: 20px;
+}
+
+.contacts-form-section {
+  background: var(--white);
+  padding: 100px 32px;
+}
+
+.contacts-form-section h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(32px, 5vw, 64px);
+  text-transform: uppercase;
+  line-height: 0.9;
+  margin-bottom: 48px;
+  color: var(--near-black);
+}
+
+.contact-form {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: var(--light-grey);
+  padding: 18px 20px;
+  font-size: 16px;
+  color: var(--near-black);
+  width: 100%;
+  border-radius: 0;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--text-grey);
+}
+
+.btn-submit {
+  background: var(--red);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 18px 40px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 0;
+  transition: background 0.2s;
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
+.btn-submit:hover {
+  background: var(--near-black);
+}
+
+/* ===================== FOOTER ===================== */
+
+.site-footer {
+  background: var(--near-black);
+  padding: 48px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-logo img {
+  height: 28px;
+  opacity: 0.6;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  font-size: 13px;
+  color: var(--text-grey);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--white);
+}
+
+.footer-copy {
+  font-size: 13px;
+  color: var(--text-grey);
+  opacity: 0.5;
+}
+
+/* ===================== RESPONSIVE ===================== */
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 20px;
+  }
+
+  .hero-nav {
+    right: 20px;
+    top: 20px;
+    gap: 16px;
+  }
+
+  .hero-nav a {
+    font-size: 12px;
+  }
+
+  .hero-word .line1,
+  .hero-word .line2 {
+    font-size: 18vw;
+  }
+
+  .hero-bottom {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .hero-phone {
+    text-align: left;
+    font-size: 22px;
+  }
+
+  .services-list-home .service-line {
+    font-size: 8vw;
+  }
+
+  .section-about {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 80px 20px;
+  }
+
+  .about-stats {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .about-stat-item .stat-number {
+    font-size: 14vw;
+  }
+
+  .section-branches {
+    padding: 80px 20px;
+  }
+
+  .branch-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .branch-address {
+    font-size: clamp(20px, 6vw, 40px);
+  }
+
+  .branch-district {
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .catalog-band-name {
+    font-size: 12vw;
+    padding: 20px;
+  }
+
+  .catalog-products {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    padding: 32px 16px 80px;
+  }
+
+  .service-block {
+    grid-template-columns: 1fr;
+  }
+
+  .service-block:nth-child(even) {
+    direction: ltr;
+  }
+
+  .service-block-image {
+    min-height: 200px;
+  }
+
+  .service-block-text {
+    padding: 48px 20px;
+  }
+
+  .about-page-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    padding: 60px 20px;
+  }
+
+  .about-page-body {
+    padding: 60px 20px;
+  }
+
+  .about-page-body .text-wide {
+    font-size: 18px;
+  }
+
+  .contacts-info {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 60px 20px;
+  }
+
+  .contacts-form-section {
+    padding: 60px 20px;
+  }
+
+  .site-footer {
+    padding: 32px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-services {
+    padding: 80px 20px;
+  }
+
+  .about-text {
+    font-size: 18px;
+  }
+
+  .catalog-filters {
+    padding: 20px;
+  }
+
+  .contacts-addresses {
+    padding: 60px 20px;
+  }
+
+  .articles-list {
+    padding: 60px 20px 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-word .line1,
+  .hero-word .line2 {
+    font-size: 20vw;
+  }
+
+  .hero-word {
+    width: 90%;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== HOME PAGE ==================== -->
+<div class="page" id="page-home">
+
+  <section class="hero">
+    <div class="hero-nav">
+      <a href="#catalog">Каталог</a>
+      <a href="#services">Услуги</a>
+      <a href="#contacts">Контакты</a>
+    </div>
+    <div class="hero-word display" id="hero-word">
+      <div class="line1">ВЕЧ</div>
+      <div class="line2">НОСТЬ</div>
+    </div>
+    <div class="hero-bottom">
+      <div class="hero-tagline" id="hero-tagline"></div>
+      <div class="hero-phone" id="hero-phone">
+        <div class="label">Круглосуточно</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-services">
+    <div class="section-label">Наши возможности</div>
+    <div class="services-list-home" id="services-list-home"></div>
+  </section>
+
+  <section class="section-catalog-bands" id="catalog-bands"></section>
+
+  <section class="section-about" id="home-about">
+    <div class="about-stats" id="home-about-stats"></div>
+    <div class="about-text" id="home-about-text"></div>
+  </section>
+
+  <section class="section-branches">
+    <div class="section-label">Офисы в Челябинске</div>
+    <div id="branches-list"></div>
+  </section>
+
+  <section class="section-cta" id="home-cta">
+    <div class="cta-label">Звоните в любое время</div>
+    <a class="cta-phone" id="cta-phone-link" href="tel:"></a>
+    <div class="cta-hours" id="cta-hours"></div>
+  </section>
+
+</div>
+
+<!-- ==================== CATALOG PAGE ==================== -->
+<div class="page" id="page-catalog">
+  <div class="catalog-header">
+    <h1>Каталог</h1>
+  </div>
+  <div class="catalog-filters" id="catalog-filters"></div>
+  <div class="catalog-products" id="catalog-products"></div>
+</div>
+
+<!-- ==================== SERVICES PAGE ==================== -->
+<div class="page" id="page-services">
+  <div class="services-header">
+    <h1>Услуги</h1>
+  </div>
+  <div id="services-blocks"></div>
+</div>
+
+<!-- ==================== ABOUT PAGE ==================== -->
+<div class="page" id="page-about">
+  <div class="about-header">
+    <h1>О компании</h1>
+  </div>
+  <div class="about-page-stats" id="about-page-stats"></div>
+  <div class="about-page-body">
+    <div class="text-wide" id="about-page-text"></div>
+  </div>
+</div>
+
+<!-- ==================== ARTICLES PAGE ==================== -->
+<div class="page" id="page-articles">
+  <div class="articles-header">
+    <h1>Статьи</h1>
+  </div>
+  <div class="articles-list" id="articles-list"></div>
+</div>
+
+<!-- ==================== CONTACTS PAGE ==================== -->
+<div class="page" id="page-contacts">
+  <div class="contacts-header">
+    <h1>Контакты</h1>
+  </div>
+  <div class="contacts-addresses" id="contacts-addresses"></div>
+  <div class="contacts-info" id="contacts-info"></div>
+  <div class="contacts-form-section">
+    <h2>Написать нам</h2>
+    <form class="contact-form" onsubmit="return false;">
+      <input type="text" placeholder="Ваше имя" required>
+      <input type="tel" placeholder="Телефон" required>
+      <textarea placeholder="Сообщение"></textarea>
+      <button type="submit" class="btn-submit">Отправить</button>
+    </form>
+  </div>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="site-footer">
+  <div class="footer-logo">
+    <img src="assets/img/Union(3)-330x79.png" alt="Вечность" id="footer-logo-img">
+  </div>
+  <div class="footer-links">
+    <a href="#home">Главная</a>
+    <a href="#catalog">Каталог</a>
+    <a href="#services">Услуги</a>
+    <a href="#about">О нас</a>
+    <a href="#articles">Статьи</a>
+    <a href="#contacts">Контакты</a>
+  </div>
+  <div class="footer-copy" id="footer-copy"></div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ========== DATA STORE ========== */
+  let COMPANY = {};
+  let SERVICES = [];
+  let CATALOG = [];
+  let ARTICLES = [];
+
+  /* ========== FETCH DATA ========== */
+  async function loadData() {
+    try {
+      const [companyRes, servicesRes, catalogRes, articlesRes] = await Promise.all([
+        fetch('data/company.json').then(r => r.json()),
+        fetch('data/services.json').then(r => r.json()),
+        fetch('data/catalog.json').then(r => r.json()),
+        fetch('data/articles.json').then(r => r.json())
+      ]);
+      COMPANY = companyRes;
+      SERVICES = servicesRes;
+      CATALOG = catalogRes;
+      ARTICLES = articlesRes;
+      renderAll();
+      navigateFromHash();
+    } catch (e) {
+      console.error('Data load error:', e);
+    }
+  }
+
+  /* ========== RENDER ========== */
+  function renderAll() {
+    renderHero();
+    renderHomeServices();
+    renderCatalogBands();
+    renderHomeAbout();
+    renderBranches();
+    renderHomeCTA();
+    renderCatalogPage();
+    renderServicesPage();
+    renderAboutPage();
+    renderArticlesPage();
+    renderContactsPage();
+    renderFooter();
+  }
+
+  function renderHero() {
+    const tagline = document.getElementById('hero-tagline');
+    tagline.textContent = COMPANY.description || '';
+
+    const phoneEl = document.getElementById('hero-phone');
+    if (COMPANY.phones && COMPANY.phones.length) {
+      COMPANY.phones.forEach(p => {
+        const a = document.createElement('a');
+        a.href = 'tel:' + p.tel;
+        a.textContent = p.number;
+        phoneEl.appendChild(a);
+      });
+    }
+  }
+
+  function renderHomeServices() {
+    const list = document.getElementById('services-list-home');
+    SERVICES.forEach(s => {
+      const div = document.createElement('div');
+      div.className = 'service-line';
+      div.innerHTML = s.name + '<span class="service-desc">' + s.description + '</span>';
+      div.addEventListener('click', function () {
+        this.classList.toggle('open');
+      });
+      list.appendChild(div);
+    });
+  }
+
+  function renderCatalogBands() {
+    const container = document.getElementById('catalog-bands');
+    CATALOG.forEach(cat => {
+      if (!cat.categoryImage) return;
+      const band = document.createElement('div');
+      band.className = 'catalog-band';
+      band.innerHTML =
+        '<div class="catalog-band-bg" style="background-image:url(' + cat.categoryImage + ')"></div>' +
+        '<div class="catalog-band-name display">' + cat.categoryName +
+        '<span class="catalog-band-count">' + cat.products.length + ' товаров</span></div>';
+      band.addEventListener('click', function () {
+        window.location.hash = '#catalog';
+        setTimeout(function () { filterCatalog(cat.category); }, 100);
+      });
+      container.appendChild(band);
+    });
+  }
+
+  function renderHomeAbout() {
+    const statsEl = document.getElementById('home-about-stats');
+    if (COMPANY.stats) {
+      const stats = [
+        { num: COMPANY.stats.years, label: 'Лет работы' },
+        { num: COMPANY.stats.branches, label: 'Офисов' },
+        { num: COMPANY.stats.availability, label: 'Доступность' },
+        { num: COMPANY.stats.products, label: 'Товаров' }
+      ];
+      stats.forEach(s => {
+        const item = document.createElement('div');
+        item.className = 'about-stat-item';
+        item.innerHTML = '<div class="stat-number display">' + s.num + '</div>' +
+                         '<div class="stat-label">' + s.label + '</div>';
+        statsEl.appendChild(item);
+      });
+    }
+
+    const textEl = document.getElementById('home-about-text');
+    let about = COMPANY.about || '';
+    about = about.replace(/Вечность/g, '<span class="company-name-inline">Вечность</span>');
+    textEl.innerHTML = about;
+  }
+
+  function renderBranches() {
+    const list = document.getElementById('branches-list');
+    if (COMPANY.branches) {
+      COMPANY.branches.forEach(b => {
+        const row = document.createElement('div');
+        row.className = 'branch-row';
+        row.innerHTML = '<div class="branch-address display">' + b.address + '</div>' +
+                        '<div class="branch-district">' + b.district + (b.note ? ' / ' + b.note : '') + '</div>';
+        list.appendChild(row);
+      });
+    }
+  }
+
+  function renderHomeCTA() {
+    if (COMPANY.phones && COMPANY.phones.length) {
+      const link = document.getElementById('cta-phone-link');
+      link.href = 'tel:' + COMPANY.phones[0].tel;
+      link.textContent = COMPANY.phones[0].number;
+    }
+    const hours = document.getElementById('cta-hours');
+    if (COMPANY.hours) {
+      hours.textContent = 'Офисы: ' + COMPANY.hours.offices + ' / Диспетчер: ' + COMPANY.hours.dispatch;
+    }
+  }
+
+  /* --------- CATALOG PAGE --------- */
+  let activeCatalogFilter = 'all';
+
+  function renderCatalogPage() {
+    const filtersEl = document.getElementById('catalog-filters');
+
+    const allBtn = document.createElement('button');
+    allBtn.className = 'catalog-filter-link active';
+    allBtn.textContent = 'Все';
+    allBtn.addEventListener('click', function () { filterCatalog('all'); });
+    filtersEl.appendChild(allBtn);
+
+    CATALOG.forEach(cat => {
+      const btn = document.createElement('button');
+      btn.className = 'catalog-filter-link';
+      btn.textContent = cat.categoryName;
+      btn.dataset.cat = cat.category;
+      btn.addEventListener('click', function () { filterCatalog(cat.category); });
+      filtersEl.appendChild(btn);
+    });
+
+    renderProducts('all');
+  }
+
+  function filterCatalog(cat) {
+    activeCatalogFilter = cat;
+    document.querySelectorAll('.catalog-filter-link').forEach(btn => {
+      btn.classList.toggle('active', (cat === 'all' && btn.textContent === 'Все') || btn.dataset.cat === cat);
+    });
+    renderProducts(cat);
+  }
+
+  function renderProducts(cat) {
+    const container = document.getElementById('catalog-products');
+    container.innerHTML = '';
+    let products = [];
+    if (cat === 'all') {
+      CATALOG.forEach(c => {
+        c.products.forEach(p => products.push(p));
+      });
+    } else {
+      const found = CATALOG.find(c => c.category === cat);
+      if (found) products = found.products;
+    }
+
+    products.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      let imgHtml;
+      if (p.image) {
+        imgHtml = '<div class="product-card-img" style="background-image:url(' + p.image + ')"></div>';
+      } else {
+        imgHtml = '<div class="product-card-img no-img">V</div>';
+      }
+      const priceText = p.price ? (p.price.match(/\d/) ? p.price + ' \u20BD' : p.price) : '';
+      card.innerHTML = imgHtml +
+        '<div class="product-card-body">' +
+          '<div class="product-card-name">' + p.name + '</div>' +
+          '<div class="product-card-price">' + priceText + '</div>' +
+        '</div>';
+      container.appendChild(card);
+    });
+  }
+
+  /* --------- SERVICES PAGE --------- */
+  function renderServicesPage() {
+    const container = document.getElementById('services-blocks');
+    SERVICES.forEach(s => {
+      const block = document.createElement('div');
+      block.className = 'service-block';
+      const imgStyle = s.image ? 'background-image:url(' + s.image + ')' : '';
+      const priceHtml = s.price ? '<div class="service-price">' + s.price + ' \u20BD</div>' : '';
+      block.innerHTML =
+        '<div class="service-block-image" style="' + imgStyle + '"></div>' +
+        '<div class="service-block-text">' +
+          '<h2>' + s.name + '</h2>' +
+          '<p>' + s.description + '</p>' +
+          priceHtml +
+        '</div>';
+      container.appendChild(block);
+    });
+  }
+
+  /* --------- ABOUT PAGE --------- */
+  function renderAboutPage() {
+    const statsEl = document.getElementById('about-page-stats');
+    if (COMPANY.stats) {
+      const stats = [
+        { num: COMPANY.stats.years, label: 'Лет на рынке' },
+        { num: COMPANY.stats.branches, label: 'Филиалов' },
+        { num: COMPANY.stats.availability, label: 'Режим работы' },
+        { num: COMPANY.stats.products, label: 'Товаров' }
+      ];
+      stats.forEach(s => {
+        const item = document.createElement('div');
+        item.className = 'about-page-stat';
+        item.innerHTML = '<div class="big-num display">' + s.num + '</div>' +
+                         '<div class="big-label">' + s.label + '</div>';
+        statsEl.appendChild(item);
+      });
+    }
+
+    const textEl = document.getElementById('about-page-text');
+    textEl.textContent = COMPANY.about || '';
+  }
+
+  /* --------- ARTICLES PAGE --------- */
+  function renderArticlesPage() {
+    const list = document.getElementById('articles-list');
+    ARTICLES.forEach(title => {
+      const item = document.createElement('div');
+      item.className = 'article-item';
+      item.innerHTML = '<div class="article-title">' + title + '</div>';
+      list.appendChild(item);
+    });
+  }
+
+  /* --------- CONTACTS PAGE --------- */
+  function renderContactsPage() {
+    // Addresses
+    const addrEl = document.getElementById('contacts-addresses');
+    if (COMPANY.branches) {
+      COMPANY.branches.forEach(b => {
+        const row = document.createElement('div');
+        row.className = 'contact-addr-row';
+        row.innerHTML = '<div class="contact-addr-street display">' + b.address + '</div>' +
+                        '<div class="contact-addr-note">' + b.district + (b.note ? ' \u2014 ' + b.note : '') + '</div>';
+        addrEl.appendChild(row);
+      });
+    }
+
+    // Info
+    const infoEl = document.getElementById('contacts-info');
+    let phonesHtml = '<div class="contacts-phones">';
+    if (COMPANY.phones) {
+      COMPANY.phones.forEach(p => {
+        phonesHtml += '<a href="tel:' + p.tel + '" class="display">' + p.number + '</a>';
+      });
+    }
+    if (COMPANY.email) {
+      phonesHtml += '<div class="contacts-email"><a href="mailto:' + COMPANY.email + '">' + COMPANY.email + '</a></div>';
+    }
+    phonesHtml += '</div>';
+
+    let hoursHtml = '<div class="contacts-hours-block">';
+    if (COMPANY.hours) {
+      hoursHtml += '<div class="hours-label">Режим работы</div>';
+      hoursHtml += '<div class="hours-line">Офисы: ' + COMPANY.hours.offices + '</div>';
+      hoursHtml += '<div class="hours-line">Диспетчерская: ' + COMPANY.hours.dispatch + '</div>';
+    }
+    hoursHtml += '</div>';
+
+    infoEl.innerHTML = phonesHtml + hoursHtml;
+  }
+
+  /* --------- FOOTER --------- */
+  function renderFooter() {
+    const copy = document.getElementById('footer-copy');
+    const year = new Date().getFullYear();
+    copy.textContent = '\u00A9 ' + year + ' ' + (COMPANY.fullName || 'Вечность');
+  }
+
+  /* ========== ROUTING ========== */
+  const pages = ['home', 'catalog', 'services', 'about', 'articles', 'contacts'];
+
+  function navigateFromHash() {
+    let hash = window.location.hash.replace('#', '') || 'home';
+    if (pages.indexOf(hash) === -1) hash = 'home';
+    showPage(hash);
+  }
+
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => {
+      p.classList.remove('active', 'visible');
+    });
+    const target = document.getElementById('page-' + id);
+    if (target) {
+      target.classList.add('active');
+      window.scrollTo({ top: 0 });
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          target.classList.add('visible');
+        });
+      });
+    }
+  }
+
+  window.addEventListener('hashchange', navigateFromHash);
+
+  /* ========== INIT ========== */
+  loadData();
+})();
+</script>
+
+</body>
+</html>

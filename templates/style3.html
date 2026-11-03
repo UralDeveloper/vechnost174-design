@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вечность — ритуальные услуги в Челябинске</title>
+<base href="../">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600&family=League+Spartan:wght@700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   STYLE 3 — "ОДИН МОТИВ" (ONE MOTIF: THE CROSS)
+   ═══════════════════════════════════════════════ */
+
+:root {
+  --navy: #1a2039;
+  --navy-light: #232a45;
+  --navy-lighter: #2c355a;
+  --pink: #f9a3c0;
+  --pink-dim: rgba(249,163,192,0.25);
+  --cobalt: #2d4a8c;
+  --font-display: 'League Spartan', sans-serif;
+  --font-body: 'Figtree', sans-serif;
+  --cross-clip: polygon(35% 0%, 65% 0%, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0% 65%, 0% 35%, 35% 35%);
+  --cross-clip-wide: polygon(30% 0%, 70% 0%, 70% 30%, 100% 30%, 100% 70%, 70% 70%, 70% 100%, 30% 100%, 30% 70%, 0% 70%, 0% 30%, 30% 30%);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--navy);
+  color: var(--pink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a { color: var(--pink); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+img { max-width: 100%; display: block; }
+
+/* ── TYPOGRAPHY ──────────────────────── */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: lowercase;
+}
+
+h2 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1.5rem; }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); margin-bottom: 0.75rem; }
+
+p { margin-bottom: 1rem; }
+
+/* ── BUTTONS ─────────────────────────── */
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--pink);
+  color: var(--navy);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: lowercase;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  letter-spacing: 0.02em;
+  transition: background 0.2s;
+}
+.btn:hover { background: #fcc5da; text-decoration: none; }
+
+/* Cross icon inside buttons */
+.btn::before {
+  content: '';
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  background: var(--navy);
+  clip-path: var(--cross-clip);
+  margin-right: 0.6em;
+  vertical-align: middle;
+  position: relative;
+  top: -0.05em;
+}
+
+/* ── CROSS MOTIF UTILITIES ───────────── */
+
+.cross-clip {
+  clip-path: var(--cross-clip);
+}
+
+.cross-clip-wide {
+  clip-path: var(--cross-clip-wide);
+}
+
+/* Tiny cross bullet for lists */
+.cross-list { list-style: none; padding: 0; }
+.cross-list li {
+  padding-left: 2em;
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+.cross-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 0.9em;
+  height: 0.9em;
+  background: var(--pink);
+  clip-path: var(--cross-clip);
+}
+
+/* ── CROSS DIVIDER BAND ──────────────── */
+
+.cross-divider {
+  width: 100%;
+  height: 120px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cross-divider-inner {
+  width: 300px;
+  height: 300px;
+  background: var(--pink);
+  clip-path: var(--cross-clip);
+  opacity: 0.15;
+}
+
+/* Full-width cross band divider */
+.cross-band {
+  width: 100%;
+  padding: 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.cross-band::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  transform: translate(-50%, -50%);
+  background: var(--pink);
+  clip-path: var(--cross-clip);
+  opacity: 0.06;
+}
+
+/* ── NAVIGATION ──────────────────────── */
+
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(26, 32, 57, 0.95);
+  backdrop-filter: blur(0px); /* NO blur by spec */
+}
+
+.nav-logo img {
+  height: 32px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+  position: relative;
+}
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  left: -1.2em;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.6em;
+  height: 0.6em;
+  background: var(--pink);
+  clip-path: var(--cross-clip);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.nav-links a:hover::before,
+.nav-links a.active::before { opacity: 1; }
+.nav-links a:hover, .nav-links a.active { text-decoration: none; }
+
+.nav-phone {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* Hamburger */
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--pink); margin: 5px 0; transition: 0.3s; }
+
+/* ── PAGE WRAPPER ────────────────────── */
+
+.page { display: none; }
+.page.active { display: block; }
+
+section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
+
+/* ── HERO ────────────────────────────── */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 8rem 2rem 6rem;
+  max-width: none;
+}
+
+/* Giant cross shape entering from right */
+.hero::before {
+  content: '';
+  position: absolute;
+  right: -20vw;
+  top: -30vh;
+  width: 120vh;
+  height: 120vh;
+  background: var(--navy-light);
+  clip-path: var(--cross-clip);
+  z-index: 0;
+  animation: hero-cross-drift 30s ease-in-out infinite alternate;
+}
+
+@keyframes hero-cross-drift {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(8deg); }
+}
+
+/* Second smaller cross */
+.hero::after {
+  content: '';
+  position: absolute;
+  right: 5vw;
+  bottom: 5vh;
+  width: 30vh;
+  height: 30vh;
+  background: var(--pink);
+  clip-path: var(--cross-clip);
+  opacity: 0.04;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  padding-left: 3vw;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 0.95;
+  text-transform: lowercase;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-sub {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.hero-phones {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.hero-phones a {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* ── SERVICES TILES ──────────────────── */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.service-tile {
+  background: var(--navy-light);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cross watermark on each tile */
+.service-tile::after {
+  content: '';
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  width: 100px;
+  height: 100px;
+  background: var(--pink);
+  clip-path: var(--cross-clip);
+  opacity: 0.04;
+}
+
+.service-tile-img-wrap {
+  width: 140px;
+  height: 140px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+.service-tile-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: var(--cross-clip);
+}
+
+.service-tile h3 { font-size: 1.2rem; }
+
+.service-tile-price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+}
+
+/* ── PRICING SIDE BY SIDE ────────────── */
+
+.pricing-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-top: 3rem;
+}
+
+.pricing-block {
+  padding: 3rem;
+  position: relative;
+}
+.pricing-block--social { background: var(--navy-light); }
+.pricing-block--standard { background: var(--cobalt); }
+
+.pricing-block h3 { font-size: 1.6rem; margin-bottom: 1.5rem; }
+
+.pricing-block .cross-list li {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.pricing-price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+/* ── ABOUT (cross portrait frame) ────── */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  margin-top: 3rem;
+}
+
+.about-text { line-height: 1.7; }
+
+.about-portrait {
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--navy-light);
+  clip-path: var(--cross-clip);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.about-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.stat-item {
+  position: relative;
+  padding-left: 2rem;
+}
+.stat-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  width: 1em;
+  height: 1em;
+  background: var(--pink);
+  clip-path: var(--cross-clip);
+}
+.stat-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2rem;
+  display: block;
+}
+.stat-label {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* ── CATALOG CATEGORIES ──────────────── */
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.category-card {
+  text-align: center;
+  cursor: pointer;
+}
+.category-card-img {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 1rem;
+  overflow: hidden;
+}
+.category-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: var(--cross-clip);
+  transition: transform 0.3s;
+}
+.category-card:hover .category-card-img img { transform: scale(1.05); }
+
+.category-card h3 {
+  font-size: 1rem;
+}
+
+/* ── BRANCHES ────────────────────────── */
+
+.branches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.branch-card {
+  background: var(--navy-light);
+  padding: 1.5rem 1.5rem 1.5rem 3rem;
+  position: relative;
+}
+.branch-card::before {
+  content: '';
+  position: absolute;
+  left: 1rem;
+  top: 1.7rem;
+  width: 0.9em;
+  height: 0.9em;
+  background: var(--pink);
+  clip-path: var(--cross-clip);
+}
+.branch-district {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: lowercase;
+  margin-bottom: 0.3rem;
+}
+.branch-address { font-size: 0.95rem; }
+.branch-note { font-size: 0.8rem; opacity: 0.6; margin-top: 0.3rem; }
+
+/* ── CTA SECTION ─────────────────────── */
+
+.cta-section {
+  text-align: center;
+  padding: 6rem 2rem;
+  position: relative;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  transform: translate(-50%, -50%);
+  background: var(--pink);
+  clip-path: var(--cross-clip);
+  opacity: 0.03;
+}
+.cta-section h2 { margin-bottom: 1rem; }
+.cta-section p { margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+/* ══════════════════════════════════════
+   CATALOG PAGE
+   ══════════════════════════════════════ */
+
+.catalog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+}
+.catalog-filter-btn {
+  padding: 0.6rem 1.5rem;
+  background: transparent;
+  border: 2px solid var(--pink);
+  color: var(--pink);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: lowercase;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.catalog-filter-btn.active,
+.catalog-filter-btn:hover {
+  background: var(--pink);
+  color: var(--navy);
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.catalog-item {
+  text-align: center;
+}
+.catalog-item-img {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 1rem;
+  background: var(--navy-light);
+  overflow: hidden;
+}
+.catalog-item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: var(--cross-clip);
+}
+/* Placeholder cross when no image */
+.catalog-item-img .no-img {
+  width: 100%;
+  height: 100%;
+  background: var(--navy-lighter);
+  clip-path: var(--cross-clip);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.catalog-item-name {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+.catalog-item-price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* ══════════════════════════════════════
+   SERVICES PAGE
+   ══════════════════════════════════════ */
+
+.services-list {
+  margin-top: 3rem;
+}
+
+.service-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--pink-dim);
+}
+.service-row:last-child { border-bottom: none; }
+
+.service-row--text-only {
+  grid-template-columns: 1fr;
+}
+
+.service-row h3 {
+  font-size: 1.4rem;
+  position: relative;
+  padding-left: 2rem;
+}
+.service-row h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  width: 1em;
+  height: 1em;
+  background: var(--pink);
+  clip-path: var(--cross-clip);
+}
+
+.service-row-img {
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+.service-row-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: var(--cross-clip);
+}
+
+.service-row-price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+}
+
+/* ══════════════════════════════════════
+   ABOUT PAGE
+   ══════════════════════════════════════ */
+
+.about-hero {
+  text-align: center;
+  padding-bottom: 3rem;
+}
+
+.about-inset {
+  background: var(--cobalt);
+  clip-path: polygon(0% 5%, 95% 0%, 100% 95%, 5% 100%);
+  padding: 4rem 3rem;
+  margin-top: 3rem;
+  position: relative;
+}
+
+.about-stats-panel {
+  background: var(--navy-light);
+  padding: 3rem;
+  margin-top: 3rem;
+  position: relative;
+  /* Cross-shaped corners: achieved with pseudo-element */
+}
+.about-stats-panel::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  background: var(--pink);
+  clip-path: var(--cross-clip);
+  opacity: 0.3;
+}
+
+/* ══════════════════════════════════════
+   ARTICLES PAGE
+   ══════════════════════════════════════ */
+
+.articles-list {
+  margin-top: 3rem;
+}
+
+.article-accordion {
+  margin-bottom: 0;
+}
+
+.article-tile {
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.2s;
+}
+.article-tile:nth-child(odd) { background: var(--navy-light); }
+.article-tile:nth-child(even) { background: var(--navy); }
+.article-tile:hover { background: var(--navy-lighter); }
+
+.article-tile h3 {
+  font-size: 1rem;
+  margin-bottom: 0;
+  position: relative;
+  padding-left: 2rem;
+  pointer-events: none;
+}
+.article-tile h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.8em;
+  height: 0.8em;
+  background: var(--pink);
+  clip-path: var(--cross-clip);
+}
+
+.article-toggle {
+  width: 24px;
+  height: 24px;
+  background: var(--pink);
+  clip-path: var(--cross-clip);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+.article-tile.open .article-toggle { transform: rotate(45deg); }
+
+.article-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background: var(--navy);
+  padding: 0 2rem;
+}
+.article-body.open {
+  max-height: 300px;
+  padding: 1.5rem 2rem;
+}
+
+/* ══════════════════════════════════════
+   CONTACTS PAGE
+   ══════════════════════════════════════ */
+
+.contacts-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.contact-info-block {
+  padding-left: 2rem;
+}
+.contact-info-block h3 {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+.contact-info-block h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  width: 0.8em;
+  height: 0.8em;
+  background: var(--pink);
+  clip-path: var(--cross-clip);
+}
+
+/* Coupon form with cross-clipped corners */
+.contact-form-wrap {
+  background: var(--navy-light);
+  padding: 3rem;
+  position: relative;
+  clip-path: polygon(
+    0% 8%, 8% 0%, 92% 0%, 100% 8%,
+    100% 92%, 92% 100%, 8% 100%, 0% 92%
+  );
+}
+
+.form-field {
+  margin-bottom: 1.5rem;
+}
+.form-field label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: lowercase;
+  margin-bottom: 0.4rem;
+}
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: var(--navy);
+  border: 2px solid var(--pink-dim);
+  color: var(--pink);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-field input:focus,
+.form-field textarea:focus { border-color: var(--pink); }
+.form-field textarea { min-height: 100px; resize: vertical; }
+
+/* ══════════════════════════════════════
+   FOOTER — cross as T's crossbar
+   ══════════════════════════════════════ */
+
+.footer {
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3rem, 8vw, 6rem);
+  text-transform: lowercase;
+  letter-spacing: -0.02em;
+  position: relative;
+  display: inline-block;
+}
+
+/* The cross replaces the T crossbar — we overlay it */
+.footer-brand .cross-t {
+  position: relative;
+  display: inline-block;
+}
+.footer-brand .cross-t::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1.2em;
+  height: 1.2em;
+  background: var(--pink);
+  clip-path: var(--cross-clip);
+  opacity: 0.15;
+  z-index: -1;
+}
+
+.footer-links {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  font-size: 0.85rem;
+  position: relative;
+  padding-left: 1.4em;
+}
+.footer-links a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.7em;
+  height: 0.7em;
+  background: var(--pink);
+  clip-path: var(--cross-clip);
+  opacity: 0.5;
+}
+
+.footer-copy {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  opacity: 0.4;
+}
+
+.footer-phones {
+  margin-top: 1rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+/* ══════════════════════════════════════
+   MOBILE RESPONSIVE
+   ══════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .pricing-row { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .contacts-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .service-row { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+
+@media (max-width: 700px) {
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: var(--navy);
+    padding: 1.5rem 2rem;
+    gap: 1rem;
+  }
+  .nav-toggle { display: block; }
+  .nav-phone { display: none; }
+
+  .hero-content { padding-left: 0; }
+  section { padding: 4rem 1.2rem; }
+
+  .services-grid { grid-template-columns: 1fr; }
+  .categories-grid { grid-template-columns: repeat(2, 1fr); }
+  .branches-grid { grid-template-columns: 1fr; }
+  .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .about-inset { padding: 2rem 1.5rem; clip-path: none; }
+  .contact-form-wrap { clip-path: none; padding: 2rem 1.5rem; }
+}
+
+/* ── LOADING STATE ───────────────────── */
+
+.loading {
+  text-align: center;
+  padding: 4rem;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  text-transform: lowercase;
+  opacity: 0.5;
+}
+.loading::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 60px;
+  background: var(--pink);
+  clip-path: var(--cross-clip);
+  margin: 0 auto 1.5rem;
+  animation: cross-spin 2s linear infinite;
+}
+
+@keyframes cross-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════
+     NAVIGATION
+     ════════════════════════════════════ -->
+<nav class="nav">
+  <a href="#home" class="nav-logo">
+    <img src="assets/img/Union(3)-330x79.png" alt="Вечность">
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home" data-page="home">главная</a></li>
+    <li><a href="#catalog" data-page="catalog">каталог</a></li>
+    <li><a href="#services" data-page="services">услуги</a></li>
+    <li><a href="#about" data-page="about">о нас</a></li>
+    <li><a href="#articles" data-page="articles">статьи</a></li>
+    <li><a href="#contacts" data-page="contacts">контакты</a></li>
+  </ul>
+  <a href="tel:+73512640056" class="nav-phone">+7 (351) 264-00-56</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Меню">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ════════════════════════════════════
+     HOME PAGE
+     ════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">вечность</h1>
+      <p class="hero-sub">ритуальные услуги в челябинске. помощь в организации похорон, изготовление памятников, круглосуточная поддержка.</p>
+      <a href="#contacts" data-page="contacts" class="btn">связаться с нами</a>
+      <div class="hero-phones" id="heroPhones"></div>
+    </div>
+  </section>
+
+  <!-- CROSS DIVIDER -->
+  <div class="cross-divider"><div class="cross-divider-inner"></div></div>
+
+  <!-- SERVICES TILES -->
+  <section>
+    <h2>услуги</h2>
+    <div class="services-grid" id="homeServices">
+      <div class="loading">загрузка</div>
+    </div>
+  </section>
+
+  <!-- CROSS BAND DIVIDER -->
+  <div class="cross-band"></div>
+
+  <!-- PRICING -->
+  <section>
+    <h2>стоимость похорон</h2>
+    <div class="pricing-row">
+      <div class="pricing-block pricing-block--social">
+        <h3>социальные</h3>
+        <ul class="cross-list">
+          <li>Оформление документов</li>
+          <li>Перевозка в морг</li>
+          <li>Гроб обитый тканью</li>
+          <li>Комплект в гроб (подушка, покрывало)</li>
+          <li>Табличка на крест</li>
+          <li>Крест деревянный</li>
+          <li>Копка могилы</li>
+        </ul>
+        <div class="pricing-price">от 20 000 ₽</div>
+      </div>
+      <div class="pricing-block pricing-block--standard">
+        <h3>стандарт</h3>
+        <ul class="cross-list">
+          <li>Полная организация похорон</li>
+          <li>Церемониймейстер</li>
+          <li>Ритуальная бригада (4 чел.)</li>
+          <li>Катафалк</li>
+          <li>Гроб велюр/атлас</li>
+          <li>Полный комплект в гроб</li>
+          <li>Венки, ленты</li>
+          <li>Копка могилы расширенная</li>
+        </ul>
+        <div class="pricing-price">от 45 000 ₽</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CROSS DIVIDER -->
+  <div class="cross-divider"><div class="cross-divider-inner"></div></div>
+
+  <!-- ABOUT PREVIEW -->
+  <section>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>о компании</h2>
+        <p id="homeAbout"></p>
+        <div class="stats-grid" id="homeStats"></div>
+      </div>
+      <div class="about-portrait">
+        <img src="assets/img/Group67-517x350.png" alt="Вечность">
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOG CATEGORIES -->
+  <section>
+    <h2>каталог</h2>
+    <div class="categories-grid" id="homeCategories">
+      <div class="loading">загрузка</div>
+    </div>
+  </section>
+
+  <!-- CROSS BAND DIVIDER -->
+  <div class="cross-band"></div>
+
+  <!-- BRANCHES -->
+  <section>
+    <h2>наши офисы</h2>
+    <div class="branches-grid" id="homeBranches">
+      <div class="loading">загрузка</div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>нужна помощь?</h2>
+    <p>Мы работаем круглосуточно. Позвоните нам или оставьте заявку, и мы свяжемся с вами в ближайшее время.</p>
+    <a href="#contacts" data-page="contacts" class="btn">оставить заявку</a>
+  </section>
+</div>
+
+<!-- ════════════════════════════════════
+     CATALOG PAGE
+     ════════════════════════════════════ -->
+<div class="page" id="page-catalog">
+  <section style="padding-top:8rem;">
+    <h2>каталог</h2>
+    <div class="catalog-filters" id="catalogFilters"></div>
+    <div class="catalog-grid" id="catalogGrid">
+      <div class="loading">загрузка</div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════════════════════
+     SERVICES PAGE
+     ════════════════════════════════════ -->
+<div class="page" id="page-services">
+  <section style="padding-top:8rem;">
+    <h2>услуги</h2>
+    <div class="services-list" id="servicesFullList">
+      <div class="loading">загрузка</div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════════════════════
+     ABOUT PAGE
+     ════════════════════════════════════ -->
+<div class="page" id="page-about">
+  <section style="padding-top:8rem;">
+    <div class="about-hero">
+      <h2>о компании вечность</h2>
+    </div>
+    <p id="aboutText" style="max-width:700px; margin:0 auto 2rem; text-align:center; line-height:1.8;"></p>
+
+    <div class="about-stats-panel">
+      <h3 style="text-align:center; margin-bottom:2rem;">компания в цифрах</h3>
+      <div class="stats-grid" id="aboutStats" style="max-width:500px; margin:0 auto;"></div>
+    </div>
+
+    <div class="about-inset" style="margin-top:3rem;">
+      <h3>наши преимущества</h3>
+      <ul class="cross-list">
+        <li>Собственное производство гробов, венков, памятников</li>
+        <li>Большой штат квалифицированных специалистов</li>
+        <li>Обширный парк специализированного транспорта</li>
+        <li>Офисы в каждом районе Челябинска</li>
+        <li>Работа в полном соответствии с законодательством РФ</li>
+        <li>Круглосуточная диспетчерская служба</li>
+      </ul>
+    </div>
+
+    <!-- Branches on about page too -->
+    <h3 style="margin-top:4rem;">наши офисы</h3>
+    <div class="branches-grid" id="aboutBranches"></div>
+  </section>
+</div>
+
+<!-- ════════════════════════════════════
+     ARTICLES PAGE
+     ════════════════════════════════════ -->
+<div class="page" id="page-articles">
+  <section style="padding-top:8rem;">
+    <h2>статьи</h2>
+    <div class="articles-list" id="articlesList">
+      <div class="loading">загрузка</div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════════════════════
+     CONTACTS PAGE
+     ════════════════════════════════════ -->
+<div class="page" id="page-contacts">
+  <section style="padding-top:8rem;">
+    <h2>контакты</h2>
+    <div class="contacts-layout">
+      <div>
+        <div class="contact-info-block" id="contactInfo"></div>
+        <div class="branches-grid" id="contactBranches" style="margin-top:2rem;"></div>
+      </div>
+      <div class="contact-form-wrap">
+        <h3>оставить заявку</h3>
+        <form id="contactForm" onsubmit="return false;">
+          <div class="form-field">
+            <label>ваше имя</label>
+            <input type="text" placeholder="Иван Иванов" required>
+          </div>
+          <div class="form-field">
+            <label>телефон</label>
+            <input type="tel" placeholder="+7 (___) ___-__-__" required>
+          </div>
+          <div class="form-field">
+            <label>сообщение</label>
+            <textarea placeholder="Опишите вашу ситуацию..."></textarea>
+          </div>
+          <button type="submit" class="btn">отправить</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-brand">
+    вечнос<span class="cross-t">т</span>ь
+  </div>
+  <div class="footer-links">
+    <a href="#home" data-page="home">главная</a>
+    <a href="#catalog" data-page="catalog">каталог</a>
+    <a href="#services" data-page="services">услуги</a>
+    <a href="#about" data-page="about">о нас</a>
+    <a href="#contacts" data-page="contacts">контакты</a>
+  </div>
+  <div class="footer-phones" id="footerPhones"></div>
+  <div class="footer-copy" id="footerCopy"></div>
+</footer>
+
+<!-- ════════════════════════════════════
+     JAVASCRIPT
+     ════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  // ── DATA STORE ─────────────────────
+  let company = null;
+  let services = [];
+  let catalog = [];
+  let articles = [];
+
+  // ── ROUTING ────────────────────────
+  function getPage() {
+    const hash = location.hash.replace('#', '') || 'home';
+    return hash.split('/')[0];
+  }
+
+  function navigate(pageName) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('page-' + pageName);
+    if (target) target.classList.add('active');
+
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.classList.toggle('active', a.dataset.page === pageName);
+    });
+
+    window.scrollTo(0, 0);
+    closeNav();
+  }
+
+  window.addEventListener('hashchange', () => navigate(getPage()));
+
+  // ── NAV TOGGLE ─────────────────────
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+
+  function closeNav() {
+    navLinks.classList.remove('open');
+  }
+
+  // All navigable links
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('[data-page]');
+    if (link) {
+      e.preventDefault();
+      const page = link.dataset.page;
+      location.hash = page;
+    }
+  });
+
+  // ── DATA LOADING ───────────────────
+  async function loadData() {
+    try {
+      const [companyRes, servicesRes, catalogRes, articlesRes] = await Promise.all([
+        fetch('data/company.json'),
+        fetch('data/services.json'),
+        fetch('data/catalog.json'),
+        fetch('data/articles.json')
+      ]);
+
+      company = await companyRes.json();
+      services = await servicesRes.json();
+      catalog = await catalogRes.json();
+      articles = await articlesRes.json();
+
+      renderAll();
+      navigate(getPage());
+    } catch (err) {
+      console.error('Failed to load data:', err);
+    }
+  }
+
+  // ── RENDER ─────────────────────────
+  function renderAll() {
+    renderHero();
+    renderHomeServices();
+    renderHomeAbout();
+    renderHomeCategories();
+    renderHomeBranches();
+    renderCatalogPage();
+    renderServicesPage();
+    renderAboutPage();
+    renderArticlesPage();
+    renderContactsPage();
+    renderFooter();
+  }
+
+  function renderHero() {
+    if (!company) return;
+    const phonesEl = document.getElementById('heroPhones');
+    phonesEl.innerHTML = company.phones.map(p =>
+      `<a href="tel:${p.tel}">${p.number}</a>`
+    ).join('');
+  }
+
+  function renderHomeServices() {
+    if (!services.length) return;
+    const grid = document.getElementById('homeServices');
+    grid.innerHTML = services.slice(0, 6).map(s => `
+      <div class="service-tile">
+        ${s.image ? `
+          <div class="service-tile-img-wrap">
+            <img src="${s.image}" alt="${s.name}" loading="lazy">
+          </div>
+        ` : ''}
+        <h3>${s.name}</h3>
+        <p>${s.description}</p>
+        ${s.price ? `<div class="service-tile-price">${s.price} ₽</div>` : ''}
+      </div>
+    `).join('');
+  }
+
+  function renderHomeAbout() {
+    if (!company) return;
+    document.getElementById('homeAbout').textContent = company.about;
+
+    const statsGrid = document.getElementById('homeStats');
+    const stats = company.stats;
+    statsGrid.innerHTML = `
+      <div class="stat-item"><span class="stat-value">${stats.years}</span><span class="stat-label">лет работы</span></div>
+      <div class="stat-item"><span class="stat-value">${stats.branches}</span><span class="stat-label">офисов</span></div>
+      <div class="stat-item"><span class="stat-value">${stats.availability}</span><span class="stat-label">на связи</span></div>
+      <div class="stat-item"><span class="stat-value">${stats.products}</span><span class="stat-label">товаров</span></div>
+    `;
+  }
+
+  function renderHomeCategories() {
+    if (!catalog.length) return;
+    const grid = document.getElementById('homeCategories');
+    grid.innerHTML = catalog.map(cat => `
+      <div class="category-card" onclick="location.hash='catalog/${cat.category}'">
+        <div class="category-card-img">
+          <img src="${cat.categoryImage}" alt="${cat.categoryName}" loading="lazy">
+        </div>
+        <h3>${cat.categoryName}</h3>
+      </div>
+    `).join('');
+  }
+
+  function renderBranches(containerId) {
+    if (!company) return;
+    const grid = document.getElementById(containerId);
+    if (!grid) return;
+    grid.innerHTML = company.branches.map(b => `
+      <div class="branch-card">
+        <div class="branch-district">${b.district}</div>
+        <div class="branch-address">${b.address}</div>
+        <div class="branch-note">${b.note}</div>
+      </div>
+    `).join('');
+  }
+
+  function renderHomeBranches() {
+    renderBranches('homeBranches');
+  }
+
+  // ── CATALOG PAGE ───────────────────
+  let activeCatalogFilter = 'all';
+
+  function renderCatalogPage() {
+    if (!catalog.length) return;
+    const filters = document.getElementById('catalogFilters');
+    filters.innerHTML = `
+      <button class="catalog-filter-btn active" data-filter="all">все</button>
+      ${catalog.map(c => `
+        <button class="catalog-filter-btn" data-filter="${c.category}">${c.categoryName}</button>
+      `).join('')}
+    `;
+
+    filters.addEventListener('click', (e) => {
+      const btn = e.target.closest('.catalog-filter-btn');
+      if (!btn) return;
+      activeCatalogFilter = btn.dataset.filter;
+      filters.querySelectorAll('.catalog-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderCatalogGrid();
+    });
+
+    renderCatalogGrid();
+  }
+
+  function renderCatalogGrid() {
+    const grid = document.getElementById('catalogGrid');
+    let products = [];
+
+    if (activeCatalogFilter === 'all') {
+      catalog.forEach(cat => {
+        cat.products.forEach(p => products.push({ ...p, category: cat.categoryName }));
+      });
+    } else {
+      const cat = catalog.find(c => c.category === activeCatalogFilter);
+      if (cat) products = cat.products.map(p => ({ ...p, category: cat.categoryName }));
+    }
+
+    grid.innerHTML = products.map(p => `
+      <div class="catalog-item">
+        <div class="catalog-item-img">
+          ${p.image
+            ? `<img src="${p.image}" alt="${p.name}" loading="lazy">`
+            : `<div class="no-img"></div>`
+          }
+        </div>
+        <div class="catalog-item-name">${p.name}</div>
+        <div class="catalog-item-price">${p.price}${p.price !== 'По запросу' ? ' ₽' : ''}</div>
+      </div>
+    `).join('');
+  }
+
+  // ── SERVICES PAGE ──────────────────
+  function renderServicesPage() {
+    if (!services.length) return;
+    const list = document.getElementById('servicesFullList');
+    list.innerHTML = services.map(s => `
+      <div class="service-row ${!s.image ? 'service-row--text-only' : ''}">
+        <div>
+          <h3>${s.name}</h3>
+          <p>${s.description}</p>
+          ${s.price ? `<div class="service-row-price">${s.price} ₽</div>` : ''}
+        </div>
+        ${s.image ? `
+          <div class="service-row-img">
+            <img src="${s.image}" alt="${s.name}" loading="lazy">
+          </div>
+        ` : ''}
+      </div>
+    `).join('');
+  }
+
+  // ── ABOUT PAGE ─────────────────────
+  function renderAboutPage() {
+    if (!company) return;
+    document.getElementById('aboutText').textContent = company.about;
+
+    const statsGrid = document.getElementById('aboutStats');
+    const stats = company.stats;
+    statsGrid.innerHTML = `
+      <div class="stat-item"><span class="stat-value">${stats.years}</span><span class="stat-label">лет работы</span></div>
+      <div class="stat-item"><span class="stat-value">${stats.branches}</span><span class="stat-label">офисов</span></div>
+      <div class="stat-item"><span class="stat-value">${stats.availability}</span><span class="stat-label">на связи</span></div>
+      <div class="stat-item"><span class="stat-value">${stats.products}</span><span class="stat-label">товаров</span></div>
+    `;
+
+    renderBranches('aboutBranches');
+  }
+
+  // ── ARTICLES PAGE ──────────────────
+  function renderArticlesPage() {
+    if (!articles.length) return;
+    const list = document.getElementById('articlesList');
+    list.innerHTML = `<div class="article-accordion">
+      ${articles.map((title, i) => `
+        <div class="article-tile" data-index="${i}">
+          <h3>${title}</h3>
+          <div class="article-toggle"></div>
+        </div>
+        <div class="article-body" data-index="${i}">
+          <p>Подробная информация о теме "${title}" будет доступна в ближайшее время. Свяжитесь с нами для консультации по любым вопросам.</p>
+        </div>
+      `).join('')}
+    </div>`;
+
+    list.querySelectorAll('.article-tile').forEach(tile => {
+      tile.addEventListener('click', () => {
+        const idx = tile.dataset.index;
+        const body = list.querySelector(`.article-body[data-index="${idx}"]`);
+        const wasOpen = tile.classList.contains('open');
+
+        // Close all
+        list.querySelectorAll('.article-tile').forEach(t => t.classList.remove('open'));
+        list.querySelectorAll('.article-body').forEach(b => b.classList.remove('open'));
+
+        if (!wasOpen) {
+          tile.classList.add('open');
+          body.classList.add('open');
+        }
+      });
+    });
+  }
+
+  // ── CONTACTS PAGE ──────────────────
+  function renderContactsPage() {
+    if (!company) return;
+
+    const info = document.getElementById('contactInfo');
+    info.innerHTML = `
+      <h3>телефоны</h3>
+      <ul class="cross-list">
+        ${company.phones.map(p => `<li><a href="tel:${p.tel}">${p.number}</a></li>`).join('')}
+      </ul>
+
+      <h3 style="margin-top:2rem;">email</h3>
+      <ul class="cross-list">
+        <li><a href="mailto:${company.email}">${company.email}</a></li>
+      </ul>
+
+      <h3 style="margin-top:2rem;">режим работы</h3>
+      <ul class="cross-list">
+        <li>Офисы: ${company.hours.offices}</li>
+        <li>Диспетчерская: ${company.hours.dispatch}</li>
+      </ul>
+    `;
+
+    renderBranches('contactBranches');
+  }
+
+  // ── FOOTER ─────────────────────────
+  function renderFooter() {
+    if (!company) return;
+    document.getElementById('footerPhones').innerHTML = company.phones.map(p =>
+      `<a href="tel:${p.tel}" style="margin: 0 1rem;">${p.number}</a>`
+    ).join('');
+    document.getElementById('footerCopy').textContent = `© ${new Date().getFullYear()} ${company.fullName}. Все права защищены.`;
+  }
+
+  // ── INIT ───────────────────────────
+  loadData();
+
+})();
+</script>
+</body>
+</html>

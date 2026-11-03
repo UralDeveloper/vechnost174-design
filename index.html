@@ -3,923 +3,139 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Вечность — ритуальные услуги в Челябинске | 3 варианта дизайна</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Golos+Text:wght@400;500;600;700;800&family=PT+Serif:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<title>Вечность — 3 варианта дизайна сайта</title>
 <style>
-/* ========== RESET ========== */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{line-height:1.6;-webkit-font-smoothing:antialiased}
-a{text-decoration:none;color:inherit;transition:.2s}
-ul{list-style:none}
-img{max-width:100%;display:block}
-button{cursor:pointer;font-family:inherit;border:none}
-.container{max-width:1200px;margin:0 auto;padding:0 20px}
-.page{display:none}.page.active{display:block}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,sans-serif;background:#111;color:#eee;min-height:100vh;display:flex;flex-direction:column}
 
-/* ========== SHARED NAV BASE (positioning for all styles) ========== */
-.nav-item{position:relative}
-.nav-item .dropdown{display:none;position:absolute;top:100%;left:0;z-index:50;min-width:220px;padding:8px 0}
-.nav-item:hover>.dropdown{display:block}
+  /* Hub screen */
+  .hub{padding:40px 20px;max-width:1200px;margin:0 auto;width:100%;flex:1}
+  .hub h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;margin-bottom:8px;letter-spacing:-.02em}
+  .hub .sub{color:#999;font-size:1rem;margin-bottom:40px}
 
-/* ========================================================================
-   STYLE 1 — «ДОЛГ» (ooo-dolg.ru inspired)
-   Корпоративный, плотный, золотисто-коричневый, острые углы, слайдер с ценами
-   ======================================================================== */
-[data-style="dolg"]{font-family:'Roboto',Arial,sans-serif;background:#f5f5f0;color:#333}
-[data-style="dolg"] .header{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:0;z-index:100}
-[data-style="dolg"] .header-top{background:#3a3a2e;color:#ccc;font-size:.8rem;padding:6px 0}
-[data-style="dolg"] .header-top a{color:#d4a843}
-[data-style="dolg"] .header-main{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-[data-style="dolg"] .logo{font-size:1.6rem;font-weight:700;color:#3a3a2e;letter-spacing:2px}
-[data-style="dolg"] .logo em{color:#c99;font-style:normal;font-weight:400;font-size:.85rem;display:block;letter-spacing:0}
-[data-style="dolg"] .header-phones a{font-size:1.15rem;font-weight:700;color:#3a3a2e;display:block}
-[data-style="dolg"] .header-phones small{color:#888;font-size:.78rem}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:900px){.cards{grid-template-columns:1fr}}
 
-/* Nav — dolg */
-[data-style="dolg"] .nav{background:#3a3a2e;border:none}
-[data-style="dolg"] .nav-list{display:flex;justify-content:center;flex-wrap:wrap}
-[data-style="dolg"] .nav-item>a{display:block;padding:12px 20px;color:#ddd;font-size:.88rem;font-weight:500;text-transform:uppercase;letter-spacing:.5px;border-bottom:3px solid transparent}
-[data-style="dolg"] .nav-item>a:hover,[data-style="dolg"] .nav-item>a.active{color:#d4a843;border-bottom-color:#d4a843;background:rgba(212,168,67,.08)}
-[data-style="dolg"] .nav-item .dropdown{background:#3a3a2e;border:1px solid #555;border-radius:0;box-shadow:0 8px 24px rgba(0,0,0,.3)}
-[data-style="dolg"] .dropdown a{color:#ccc;padding:8px 20px;font-size:.85rem}
-[data-style="dolg"] .dropdown a:hover{background:#d4a843;color:#222}
+  .card{border-radius:12px;overflow:hidden;cursor:pointer;transition:transform .2s;position:relative;aspect-ratio:16/10;display:flex;flex-direction:column;justify-content:flex-end}
+  .card:hover{transform:translateY(-4px)}
+  .card-bg{position:absolute;inset:0;z-index:0}
+  .card-bg iframe{width:100%;height:100%;border:none;pointer-events:none;transform:scale(1.01)}
+  .card-info{position:relative;z-index:1;padding:20px;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+  .card-info h2{font-size:1.3rem;font-weight:700;margin-bottom:4px}
+  .card-info p{font-size:.85rem;color:#aaa;line-height:1.4}
+  .card-info .ref{font-size:.875rem;color:#aaa;margin-top:6px}
 
-/* Hero — dolg: слайдер с карточками тарифов */
-[data-style="dolg"] .hero{background:linear-gradient(135deg,#2c2a20 0%,#3a3a2e 50%,#2c2a20 100%);padding:0;overflow:hidden}
-[data-style="dolg"] .hero-slider{display:flex;transition:transform .6s ease}
-[data-style="dolg"] .hero-slide{min-width:100%;padding:50px 0;display:flex;align-items:center}
-[data-style="dolg"] .hero-slide .container{display:flex;align-items:stretch;gap:24px;width:100%}
-[data-style="dolg"] .hero-info{flex:1;color:#fff;display:flex;flex-direction:column;justify-content:center}
-[data-style="dolg"] .hero-info h1{font-size:2.4rem;font-weight:700;margin-bottom:12px;line-height:1.15}
-[data-style="dolg"] .hero-info p{color:rgba(255,255,255,.7);margin-bottom:24px;font-size:1rem}
-[data-style="dolg"] .price-cards{display:flex;gap:16px;flex:1}
-[data-style="dolg"] .price-card{background:rgba(255,255,255,.06);border:1px solid rgba(212,168,67,.3);padding:28px 20px;flex:1;text-align:center;transition:.2s}
-[data-style="dolg"] .price-card:hover{border-color:#d4a843;background:rgba(212,168,67,.1)}
-[data-style="dolg"] .price-card h3{color:#d4a843;font-size:1rem;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
-[data-style="dolg"] .price-card .price{color:#fff;font-size:2rem;font-weight:700;margin-bottom:4px}
-[data-style="dolg"] .price-card .price small{font-size:.9rem;font-weight:400;color:rgba(255,255,255,.6)}
-[data-style="dolg"] .price-card p{color:rgba(255,255,255,.5);font-size:.8rem}
+  .card .overlay{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.4);opacity:0;transition:opacity .3s}
+  .card:hover .overlay{opacity:1}
+  .overlay span{background:#fff;color:#111;padding:12px 28px;font-weight:700;font-size:.95rem;border-radius:6px}
 
-/* Buttons — dolg: sharp, filled */
-[data-style="dolg"] .btn{background:#d4a843;color:#222;padding:12px 28px;font-weight:700;font-size:.9rem;border-radius:0;text-transform:uppercase;letter-spacing:.5px}
-[data-style="dolg"] .btn:hover{background:#e0bb5a}
-[data-style="dolg"] .btn-outline{background:transparent;border:2px solid #d4a843;color:#d4a843}
-[data-style="dolg"] .btn-outline:hover{background:#d4a843;color:#222}
+  /* Fullscreen view */
+  .fullscreen{display:none;position:fixed;inset:0;z-index:100;background:#111}
+  .fullscreen.active{display:flex;flex-direction:column}
+  .fullscreen iframe{flex:1;border:none;width:100%}
+  .toolbar{display:flex;align-items:center;gap:12px;padding:8px 16px;background:#1a1a1a;border-bottom:1px solid #333}
+  .toolbar .back{background:none;border:1px solid #555;color:#ccc;padding:6px 16px;border-radius:6px;cursor:pointer;font-size:.85rem;font-family:inherit}
+  .toolbar .back:hover{background:#333}
+  .toolbar .title{font-size:.9rem;color:#888;flex:1}
+  .toolbar .switcher{display:flex;gap:4px}
+  .toolbar .sw-btn{background:#333;border:none;color:#aaa;padding:6px 14px;font-size:.8rem;cursor:pointer;font-family:inherit;border-radius:4px}
+  .toolbar .sw-btn:hover{background:#444;color:#fff}
+  .toolbar .sw-btn.active{background:#E30613;color:#fff}
 
-/* Sections — dolg */
-[data-style="dolg"] .section{padding:50px 0}
-[data-style="dolg"] .section-alt{background:#edeae0}
-[data-style="dolg"] .section-title{font-size:1.8rem;font-weight:700;color:#3a3a2e;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;text-align:center;position:relative;padding-bottom:14px}
-[data-style="dolg"] .section-title::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60px;height:3px;background:#d4a843}
-[data-style="dolg"] .section-subtitle{text-align:center;color:#888;margin-bottom:36px;margin-top:8px}
-
-/* Cards — dolg: sharp, dense, bordered */
-[data-style="dolg"] .card{background:#fff;border:1px solid #ddd;border-radius:0;overflow:hidden;transition:.2s}
-[data-style="dolg"] .card:hover{box-shadow:0 6px 20px rgba(0,0,0,.1);border-color:#d4a843}
-[data-style="dolg"] .card-img{height:180px;background:#f0ead8;display:flex;align-items:center;justify-content:center;position:relative}
-[data-style="dolg"] .card-img svg{width:50px;height:50px;fill:#c5a73c;opacity:.4}
-[data-style="dolg"] .card-badge{position:absolute;top:0;left:0;background:#d4a843;color:#222;padding:4px 14px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
-[data-style="dolg"] .card-body{padding:16px}
-[data-style="dolg"] .card-body h3{font-size:.95rem;font-weight:700;color:#3a3a2e;margin-bottom:4px}
-[data-style="dolg"] .card-body p{font-size:.82rem;color:#888}
-[data-style="dolg"] .card-price{font-size:1.1rem;font-weight:700;color:#3a3a2e;margin-top:8px}
-
-/* Services — dolg: icon + text rows */
-[data-style="dolg"] .service-card{display:flex;gap:16px;padding:20px;background:#fff;border:1px solid #ddd;border-radius:0;transition:.2s;align-items:flex-start}
-[data-style="dolg"] .service-card:hover{border-color:#d4a843;box-shadow:0 4px 12px rgba(0,0,0,.08)}
-[data-style="dolg"] .service-icon{width:48px;height:48px;background:#f0ead8;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-[data-style="dolg"] .service-icon svg{width:24px;height:24px;fill:#c5a73c}
-[data-style="dolg"] .service-info h3{font-size:.92rem;font-weight:700;color:#3a3a2e;margin-bottom:2px}
-[data-style="dolg"] .service-info p{font-size:.82rem;color:#777}
-
-/* USP — dolg */
-[data-style="dolg"] .usp-bar{background:#3a3a2e;padding:20px 0}
-[data-style="dolg"] .usp-list{display:flex;justify-content:center;flex-wrap:wrap;gap:32px}
-[data-style="dolg"] .usp-item{color:#ccc;font-size:.85rem;display:flex;align-items:center;gap:8px}
-[data-style="dolg"] .usp-item svg{width:20px;height:20px;fill:#d4a843}
-
-/* Branches — dolg */
-[data-style="dolg"] .branch-card{background:#fff;border:1px solid #ddd;padding:16px;border-radius:0}
-[data-style="dolg"] .branch-card .district{font-size:.72rem;color:#d4a843;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
-[data-style="dolg"] .branch-card h4{font-size:.9rem;color:#3a3a2e}
-[data-style="dolg"] .branch-card p{font-size:.82rem;color:#888}
-
-/* About — dolg */
-[data-style="dolg"] .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
-[data-style="dolg"] .stat-box{background:#f0ead8;padding:20px;text-align:center}
-[data-style="dolg"] .stat-box .num{font-size:1.8rem;font-weight:700;color:#3a3a2e}
-[data-style="dolg"] .stat-box .label{font-size:.78rem;color:#888}
-[data-style="dolg"] .about-img{height:300px;background:#f0ead8;display:flex;align-items:center;justify-content:center;border:1px solid #ddd}
-[data-style="dolg"] .about-img svg{width:80px;height:80px;fill:#c5a73c;opacity:.3}
-
-/* Footer — dolg */
-[data-style="dolg"] .footer{background:#2c2a20;color:rgba(255,255,255,.6);padding:40px 0 0}
-[data-style="dolg"] .footer h4{color:#d4a843;text-transform:uppercase;font-size:.85rem;letter-spacing:1px;margin-bottom:12px}
-[data-style="dolg"] .footer a{color:rgba(255,255,255,.5)}
-[data-style="dolg"] .footer a:hover{color:#d4a843}
-[data-style="dolg"] .footer-bottom{margin-top:30px;padding:16px 0;border-top:1px solid rgba(255,255,255,.1);text-align:center;font-size:.78rem;color:rgba(255,255,255,.3)}
-
-/* Contacts — dolg */
-[data-style="dolg"] .contact-form{background:#fff;border:1px solid #ddd;padding:28px;border-radius:0}
-[data-style="dolg"] .contact-form h3{color:#3a3a2e}
-[data-style="dolg"] .form-group input,[data-style="dolg"] .form-group textarea{border:1px solid #ddd;border-radius:0;padding:10px;background:#fff;color:#333;font-size:.9rem;width:100%;font-family:inherit}
-[data-style="dolg"] .form-group input:focus,[data-style="dolg"] .form-group textarea:focus{border-color:#d4a843;outline:none}
-[data-style="dolg"] .form-group label{font-size:.8rem;color:#888;display:block;margin-bottom:4px}
-[data-style="dolg"] .form-group{margin-bottom:14px}
-
-/* Articles — dolg */
-[data-style="dolg"] .article-item{padding:14px 0;border-bottom:1px solid #ddd;display:flex;justify-content:space-between;align-items:center}
-[data-style="dolg"] .article-item:hover{padding-left:6px}
-[data-style="dolg"] .article-item h4{font-size:.92rem;color:#3a3a2e}
-[data-style="dolg"] .article-item span{color:#d4a843}
-
-/* Cat tabs — dolg */
-[data-style="dolg"] .cat-tabs{display:flex;flex-wrap:wrap;gap:0;justify-content:center;margin-bottom:28px;border-bottom:2px solid #ddd}
-[data-style="dolg"] .cat-tab{padding:10px 20px;font-size:.85rem;cursor:pointer;color:#888;border-bottom:2px solid transparent;margin-bottom:-2px;transition:.2s;background:none}
-[data-style="dolg"] .cat-tab:hover,[data-style="dolg"] .cat-tab.active{color:#3a3a2e;border-bottom-color:#d4a843}
-
-/* DOLG — brand override (Вечность174 colors) */
-[data-style="dolg"][data-brand="vechnost"] .header-top{background:#c41017}
-[data-style="dolg"][data-brand="vechnost"] .header-top a{color:#ffe066}
-[data-style="dolg"][data-brand="vechnost"] .nav{background:#c41017}
-[data-style="dolg"][data-brand="vechnost"] .nav-item>a:hover,[data-style="dolg"][data-brand="vechnost"] .nav-item>a.active{color:#ffe066;border-bottom-color:#ffe066}
-[data-style="dolg"][data-brand="vechnost"] .dropdown a:hover{background:#e30613;color:#fff}
-[data-style="dolg"][data-brand="vechnost"] .nav-item .dropdown{background:#a00e14;border-color:#c41017}
-[data-style="dolg"][data-brand="vechnost"] .btn{background:#e30613;color:#fff}
-[data-style="dolg"][data-brand="vechnost"] .btn:hover{background:#ff1a27}
-[data-style="dolg"][data-brand="vechnost"] .btn-outline{background:transparent;border-color:#e30613;color:#e30613}
-[data-style="dolg"][data-brand="vechnost"] .btn-outline:hover{background:#e30613;color:#fff}
-[data-style="dolg"][data-brand="vechnost"] .hero{background:linear-gradient(135deg,#5a0008 0%,#8b0a10 50%,#5a0008 100%)}
-[data-style="dolg"][data-brand="vechnost"] .price-card{border-color:rgba(227,6,19,.3)}
-[data-style="dolg"][data-brand="vechnost"] .price-card:hover{border-color:#e30613;background:rgba(227,6,19,.1)}
-[data-style="dolg"][data-brand="vechnost"] .price-card h3{color:#ff6b6b}
-[data-style="dolg"][data-brand="vechnost"] .section-title::after{background:#e30613}
-[data-style="dolg"][data-brand="vechnost"] .card:hover{border-color:#e30613}
-[data-style="dolg"][data-brand="vechnost"] .card-badge{background:#e30613;color:#fff}
-[data-style="dolg"][data-brand="vechnost"] .card-img{background:#fde8e8}
-[data-style="dolg"][data-brand="vechnost"] .card-img svg{fill:#e30613}
-[data-style="dolg"][data-brand="vechnost"] .usp-bar{background:#c41017}
-[data-style="dolg"][data-brand="vechnost"] .usp-item svg{fill:#ffe066}
-[data-style="dolg"][data-brand="vechnost"] .usp-item{color:#fff}
-[data-style="dolg"][data-brand="vechnost"] .service-icon{background:#fde8e8}
-[data-style="dolg"][data-brand="vechnost"] .service-icon svg{fill:#e30613}
-[data-style="dolg"][data-brand="vechnost"] .service-card:hover{border-color:#e30613}
-[data-style="dolg"][data-brand="vechnost"] .stat-box{background:#fde8e8}
-[data-style="dolg"][data-brand="vechnost"] .branch-card .district{color:#e30613}
-[data-style="dolg"][data-brand="vechnost"] .footer{background:#5a0008}
-[data-style="dolg"][data-brand="vechnost"] .footer h4{color:#ff6b6b}
-[data-style="dolg"][data-brand="vechnost"] .footer a:hover{color:#ff6b6b}
-[data-style="dolg"][data-brand="vechnost"] .cat-tab:hover,[data-style="dolg"][data-brand="vechnost"] .cat-tab.active{color:#e30613;border-bottom-color:#e30613}
-[data-style="dolg"][data-brand="vechnost"] .article-item span{color:#e30613}
-[data-style="dolg"][data-brand="vechnost"] .form-group input:focus,[data-style="dolg"][data-brand="vechnost"] .form-group textarea:focus{border-color:#e30613}
-
-/* ========================================================================
-   STYLE 2 — «RITUAL» (chel.ritual.ru inspired)
-   Строгий деловой, коричнево-бордовый, зелёные кнопки, Open Sans, airy
-   ======================================================================== */
-[data-style="ritual"]{font-family:'Open Sans',Arial,sans-serif;background:#fff;color:#444}
-[data-style="ritual"] .header{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.06);position:sticky;top:0;z-index:100}
-[data-style="ritual"] .header-top{background:#fcfafa;color:#888;font-size:.8rem;padding:6px 0;border-bottom:1px solid #f0eded}
-[data-style="ritual"] .header-top a{color:#aa5c58}
-[data-style="ritual"] .header-main{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
-[data-style="ritual"] .logo{font-size:1.5rem;font-weight:800;color:#444;display:flex;align-items:center;gap:10px}
-[data-style="ritual"] .logo em{color:#aa5c58;font-style:normal;font-weight:400;font-size:.82rem;display:block}
-[data-style="ritual"] .header-phones a{font-size:1.1rem;font-weight:700;color:#444;display:block}
-[data-style="ritual"] .header-phones small{color:#999;font-size:.78rem}
-
-/* Nav — ritual */
-[data-style="ritual"] .nav{background:#fff;border-bottom:1px solid #f0eded}
-[data-style="ritual"] .nav-list{display:flex;justify-content:center;flex-wrap:wrap}
-[data-style="ritual"] .nav-item>a{display:block;padding:14px 22px;color:#555;font-size:.9rem;font-weight:600;border-bottom:2px solid transparent}
-[data-style="ritual"] .nav-item>a:hover,[data-style="ritual"] .nav-item>a.active{color:#aa5c58;border-bottom-color:#aa5c58}
-[data-style="ritual"] .nav-item .dropdown{background:#fff;border:1px solid #eee;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
-[data-style="ritual"] .dropdown a{color:#555;padding:10px 20px;font-size:.88rem}
-[data-style="ritual"] .dropdown a:hover{background:#fdf5f4;color:#aa5c58}
-
-/* Hero — ritual: мягкий, с калькулятором */
-[data-style="ritual"] .hero{background:linear-gradient(135deg,#fdf5f4 0%,#f7eded 100%);padding:60px 0;position:relative}
-[data-style="ritual"] .hero::after{content:'';position:absolute;right:0;top:0;bottom:0;width:40%;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><circle cx="300" cy="200" r="150" fill="none" stroke="%23aa5c5811" stroke-width="2"/><circle cx="300" cy="200" r="100" fill="none" stroke="%23aa5c5808" stroke-width="1.5"/></svg>') center/contain no-repeat}
-[data-style="ritual"] .hero-slide{min-width:100%;display:flex;align-items:center}
-[data-style="ritual"] .hero-slide .container{display:flex;align-items:center;gap:40px}
-[data-style="ritual"] .hero-info{flex:1;z-index:1}
-[data-style="ritual"] .hero-info h1{font-size:2.2rem;font-weight:800;color:#333;margin-bottom:10px;line-height:1.2}
-[data-style="ritual"] .hero-info p{color:#777;margin-bottom:24px;font-size:1rem;max-width:480px}
-[data-style="ritual"] .price-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;flex:0 0 380px;z-index:1}
-[data-style="ritual"] .price-card{background:#fff;border:1px solid #eee;border-radius:6px;padding:20px;text-align:center;transition:.2s}
-[data-style="ritual"] .price-card:hover{box-shadow:0 4px 16px rgba(170,92,88,.12);border-color:#dab8b6}
-[data-style="ritual"] .price-card h3{color:#aa5c58;font-size:.82rem;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
-[data-style="ritual"] .price-card .price{color:#333;font-size:1.5rem;font-weight:700}
-[data-style="ritual"] .price-card .price small{font-size:.85rem;font-weight:400;color:#999}
-[data-style="ritual"] .price-card p{color:#aaa;font-size:.78rem;margin-top:4px}
-
-/* Buttons — ritual: green primary, rounded */
-[data-style="ritual"] .btn{background:#5a9e5f;color:#fff;padding:12px 28px;font-weight:700;font-size:.9rem;border-radius:6px}
-[data-style="ritual"] .btn:hover{background:#4a8c4f}
-[data-style="ritual"] .btn-outline{background:transparent;border:2px solid #aa5c58;color:#aa5c58;border-radius:6px}
-[data-style="ritual"] .btn-outline:hover{background:#aa5c58;color:#fff}
-
-/* Sections — ritual */
-[data-style="ritual"] .section{padding:56px 0}
-[data-style="ritual"] .section-alt{background:#fcfafa}
-[data-style="ritual"] .section-title{font-size:1.7rem;font-weight:800;color:#333;text-align:center;margin-bottom:6px}
-[data-style="ritual"] .section-subtitle{text-align:center;color:#999;margin-bottom:36px}
-
-/* Cards — ritual: light shadow, slight radius */
-[data-style="ritual"] .card{background:#fff;border:1px solid #eee;border-radius:6px;overflow:hidden;transition:.2s}
-[data-style="ritual"] .card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06)}
-[data-style="ritual"] .card-img{height:180px;background:#fdf5f4;display:flex;align-items:center;justify-content:center;position:relative}
-[data-style="ritual"] .card-img svg{width:50px;height:50px;fill:#c49290;opacity:.5}
-[data-style="ritual"] .card-badge{position:absolute;top:10px;left:10px;background:#aa5c58;color:#fff;padding:3px 12px;border-radius:4px;font-size:.72rem;font-weight:700}
-[data-style="ritual"] .card-body{padding:18px}
-[data-style="ritual"] .card-body h3{font-size:.95rem;font-weight:700;color:#333;margin-bottom:4px}
-[data-style="ritual"] .card-body p{font-size:.82rem;color:#999}
-[data-style="ritual"] .card-price{font-size:1.05rem;font-weight:700;color:#5a9e5f;margin-top:8px}
-
-/* Services — ritual */
-[data-style="ritual"] .service-card{display:flex;gap:16px;padding:22px;background:#fff;border:1px solid #eee;border-radius:6px;transition:.2s}
-[data-style="ritual"] .service-card:hover{box-shadow:0 4px 14px rgba(0,0,0,.05)}
-[data-style="ritual"] .service-icon{width:50px;height:50px;background:#fdf5f4;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-[data-style="ritual"] .service-icon svg{width:24px;height:24px;fill:#aa5c58}
-[data-style="ritual"] .service-info h3{font-size:.92rem;font-weight:700;color:#333;margin-bottom:2px}
-[data-style="ritual"] .service-info p{font-size:.82rem;color:#888}
-
-/* USP — ritual */
-[data-style="ritual"] .usp-bar{background:#fdf5f4;padding:24px 0;border-top:1px solid #f0eded;border-bottom:1px solid #f0eded}
-[data-style="ritual"] .usp-list{display:flex;justify-content:center;flex-wrap:wrap;gap:36px}
-[data-style="ritual"] .usp-item{color:#666;font-size:.88rem;display:flex;align-items:center;gap:8px}
-[data-style="ritual"] .usp-item svg{width:20px;height:20px;fill:#aa5c58}
-
-/* Branches — ritual */
-[data-style="ritual"] .branch-card{background:#fff;border:1px solid #eee;padding:18px;border-radius:6px}
-[data-style="ritual"] .branch-card .district{font-size:.72rem;color:#aa5c58;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
-[data-style="ritual"] .branch-card h4{font-size:.9rem;color:#333}
-[data-style="ritual"] .branch-card p{font-size:.82rem;color:#999}
-
-/* About — ritual */
-[data-style="ritual"] .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
-[data-style="ritual"] .stat-box{background:#fdf5f4;border-radius:6px;padding:20px;text-align:center}
-[data-style="ritual"] .stat-box .num{font-size:1.8rem;font-weight:800;color:#aa5c58}
-[data-style="ritual"] .stat-box .label{font-size:.78rem;color:#999}
-[data-style="ritual"] .about-img{height:300px;background:#fdf5f4;border-radius:6px;display:flex;align-items:center;justify-content:center}
-[data-style="ritual"] .about-img svg{width:80px;height:80px;fill:#c49290;opacity:.3}
-
-/* Footer — ritual */
-[data-style="ritual"] .footer{background:#2c2c2c;color:rgba(255,255,255,.6);padding:44px 0 0}
-[data-style="ritual"] .footer h4{color:#fff;font-size:.9rem;margin-bottom:14px}
-[data-style="ritual"] .footer a{color:rgba(255,255,255,.5)}
-[data-style="ritual"] .footer a:hover{color:#dab8b6}
-[data-style="ritual"] .footer-bottom{margin-top:30px;padding:16px 0;border-top:1px solid rgba(255,255,255,.08);text-align:center;font-size:.78rem;color:rgba(255,255,255,.3)}
-
-/* Contacts — ritual */
-[data-style="ritual"] .contact-form{background:#fff;border:1px solid #eee;padding:28px;border-radius:6px}
-[data-style="ritual"] .contact-form h3{color:#333}
-[data-style="ritual"] .form-group input,[data-style="ritual"] .form-group textarea{border:1px solid #e0e0e0;border-radius:6px;padding:11px;background:#fff;color:#444;font-size:.9rem;width:100%;font-family:inherit}
-[data-style="ritual"] .form-group input:focus,[data-style="ritual"] .form-group textarea:focus{border-color:#aa5c58;outline:none}
-[data-style="ritual"] .form-group label{font-size:.8rem;color:#999;display:block;margin-bottom:4px}
-[data-style="ritual"] .form-group{margin-bottom:14px}
-
-/* Cat tabs — ritual */
-[data-style="ritual"] .cat-tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:28px}
-[data-style="ritual"] .cat-tab{padding:8px 20px;font-size:.85rem;cursor:pointer;border:1px solid #eee;border-radius:20px;color:#888;transition:.2s;background:#fff}
-[data-style="ritual"] .cat-tab:hover,[data-style="ritual"] .cat-tab.active{background:#aa5c58;color:#fff;border-color:#aa5c58}
-
-/* Articles — ritual */
-[data-style="ritual"] .article-item{padding:14px 0;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center}
-[data-style="ritual"] .article-item:hover{padding-left:6px}
-[data-style="ritual"] .article-item h4{font-size:.92rem;color:#333}
-[data-style="ritual"] .article-item span{color:#aa5c58}
-
-/* RITUAL — brand override */
-[data-style="ritual"][data-brand="vechnost"] .nav-item>a:hover,[data-style="ritual"][data-brand="vechnost"] .nav-item>a.active{color:#e30613;border-bottom-color:#e30613}
-[data-style="ritual"][data-brand="vechnost"] .header-top a{color:#e30613}
-[data-style="ritual"][data-brand="vechnost"] .hero{background:linear-gradient(135deg,#fde8e8 0%,#fcd5d5 100%)}
-[data-style="ritual"][data-brand="vechnost"] .btn{background:#e30613;color:#fff}
-[data-style="ritual"][data-brand="vechnost"] .btn:hover{background:#ff1a27}
-[data-style="ritual"][data-brand="vechnost"] .btn-outline{border-color:#e30613;color:#e30613}
-[data-style="ritual"][data-brand="vechnost"] .btn-outline:hover{background:#e30613;color:#fff}
-[data-style="ritual"][data-brand="vechnost"] .price-card:hover{border-color:#e30613;box-shadow:0 4px 16px rgba(227,6,19,.1)}
-[data-style="ritual"][data-brand="vechnost"] .price-card h3{color:#e30613}
-[data-style="ritual"][data-brand="vechnost"] .card-badge{background:#e30613}
-[data-style="ritual"][data-brand="vechnost"] .card-price{color:#e30613}
-[data-style="ritual"][data-brand="vechnost"] .card-img{background:#fde8e8}
-[data-style="ritual"][data-brand="vechnost"] .card-img svg{fill:#e30613}
-[data-style="ritual"][data-brand="vechnost"] .service-icon{background:#fde8e8}
-[data-style="ritual"][data-brand="vechnost"] .service-icon svg{fill:#e30613}
-[data-style="ritual"][data-brand="vechnost"] .usp-bar{background:#fde8e8;border-color:#fcd5d5}
-[data-style="ritual"][data-brand="vechnost"] .usp-item svg{fill:#e30613}
-[data-style="ritual"][data-brand="vechnost"] .stat-box{background:#fde8e8}
-[data-style="ritual"][data-brand="vechnost"] .stat-box .num{color:#e30613}
-[data-style="ritual"][data-brand="vechnost"] .about-img{background:#fde8e8}
-[data-style="ritual"][data-brand="vechnost"] .about-img svg{fill:#e30613}
-[data-style="ritual"][data-brand="vechnost"] .section-alt{background:#fff5f5}
-[data-style="ritual"][data-brand="vechnost"] .dropdown a:hover{color:#e30613;background:#fde8e8}
-[data-style="ritual"][data-brand="vechnost"] .branch-card .district{color:#e30613}
-[data-style="ritual"][data-brand="vechnost"] .cat-tab:hover,[data-style="ritual"][data-brand="vechnost"] .cat-tab.active{background:#e30613;border-color:#e30613}
-[data-style="ritual"][data-brand="vechnost"] .article-item span{color:#e30613}
-[data-style="ritual"][data-brand="vechnost"] .footer{background:#5a0008}
-[data-style="ritual"][data-brand="vechnost"] .footer a:hover{color:#ff6b6b}
-[data-style="ritual"][data-brand="vechnost"] .form-group input:focus,[data-style="ritual"][data-brand="vechnost"] .form-group textarea:focus{border-color:#e30613}
-
-/* ========================================================================
-   STYLE 3 — «МФЦ» (mfc-ritual.ru inspired)
-   Современный, скруглённый, тёмно-синий + красный, Golos Text, воздушный
-   ======================================================================== */
-[data-style="mfc"]{font-family:'Golos Text',system-ui,sans-serif;background:#f8f9fc;color:#24365c}
-[data-style="mfc"] .header{background:#fff;box-shadow:0 1px 8px rgba(36,54,92,.06);position:sticky;top:0;z-index:100}
-[data-style="mfc"] .header-top{background:#24365c;color:#8a9bc0;font-size:.8rem;padding:6px 0}
-[data-style="mfc"] .header-top a{color:#cdd6e8}
-[data-style="mfc"] .header-main{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-[data-style="mfc"] .logo{font-size:1.4rem;font-weight:800;color:#24365c;letter-spacing:-.02em}
-[data-style="mfc"] .logo em{color:#a82319;font-style:normal;font-weight:500;font-size:.82rem;display:block;letter-spacing:0}
-[data-style="mfc"] .header-phones a{font-size:1.1rem;font-weight:700;color:#24365c;display:block}
-[data-style="mfc"] .header-phones small{color:#8a9bc0;font-size:.78rem}
-
-/* Nav — mfc */
-[data-style="mfc"] .nav{background:#fff;border-bottom:1px solid #eef2f7}
-[data-style="mfc"] .nav-list{display:flex;justify-content:center;flex-wrap:wrap}
-[data-style="mfc"] .nav-item>a{display:block;padding:14px 22px;color:#5b6a88;font-size:.88rem;font-weight:600;border-bottom:2px solid transparent;letter-spacing:-.01em}
-[data-style="mfc"] .nav-item>a:hover,[data-style="mfc"] .nav-item>a.active{color:#a82319;border-bottom-color:#a82319}
-[data-style="mfc"] .nav-item .dropdown{background:#fff;border:1px solid #eef2f7;border-radius:16px;box-shadow:0 12px 36px rgba(36,54,92,.1)}
-[data-style="mfc"] .dropdown a{color:#5b6a88;padding:10px 20px;font-size:.88rem;border-radius:8px;margin:2px 6px}
-[data-style="mfc"] .dropdown a:hover{background:#f0f3f9;color:#a82319}
-
-/* Hero — mfc: clean, modern, with CTA */
-[data-style="mfc"] .hero{background:linear-gradient(160deg,#24365c 0%,#2d4470 60%,#1a2844 100%);padding:70px 0;position:relative;overflow:hidden}
-[data-style="mfc"] .hero::before{content:'';position:absolute;right:-100px;top:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(168,35,25,.15) 0%,transparent 70%)}
-[data-style="mfc"] .hero-slide{min-width:100%;display:flex;align-items:center}
-[data-style="mfc"] .hero-slide .container{display:flex;align-items:center;gap:48px}
-[data-style="mfc"] .hero-info{flex:1;z-index:1}
-[data-style="mfc"] .hero-info h1{font-size:2.6rem;font-weight:800;color:#fff;margin-bottom:12px;line-height:1.1;letter-spacing:-.02em}
-[data-style="mfc"] .hero-info p{color:#8a9bc0;margin-bottom:28px;font-size:1.05rem;max-width:500px}
-[data-style="mfc"] .price-cards{display:flex;flex-direction:column;gap:12px;flex:0 0 340px;z-index:1}
-[data-style="mfc"] .price-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(8px);transition:.3s}
-[data-style="mfc"] .price-card:hover{background:rgba(255,255,255,.1);border-color:rgba(168,35,25,.4);transform:translateY(-2px)}
-[data-style="mfc"] .price-card h3{color:rgba(255,255,255,.7);font-size:.82rem;font-weight:500;margin-bottom:2px}
-[data-style="mfc"] .price-card .price{color:#fff;font-size:1.3rem;font-weight:700}
-[data-style="mfc"] .price-card .price small{font-size:.8rem;font-weight:400;color:#8a9bc0}
-[data-style="mfc"] .price-card p{display:none}
-
-/* Buttons — mfc: rounded, shadow */
-[data-style="mfc"] .btn{background:#a82319;color:#fff;padding:14px 30px;font-weight:700;font-size:.9rem;border-radius:14px;box-shadow:0 8px 24px rgba(168,35,25,.25);transition:.3s}
-[data-style="mfc"] .btn:hover{background:#8e1d14;transform:translateY(-2px);box-shadow:0 12px 28px rgba(168,35,25,.35)}
-[data-style="mfc"] .btn-outline{background:transparent;border:2px solid #a82319;color:#a82319;border-radius:14px;box-shadow:none}
-[data-style="mfc"] .btn-outline:hover{background:#a82319;color:#fff;box-shadow:0 8px 24px rgba(168,35,25,.25)}
-
-/* Sections — mfc */
-[data-style="mfc"] .section{padding:64px 0}
-[data-style="mfc"] .section-alt{background:#f0f3f9}
-[data-style="mfc"] .section-title{font-size:1.8rem;font-weight:800;color:#24365c;text-align:center;margin-bottom:6px;letter-spacing:-.02em}
-[data-style="mfc"] .section-subtitle{text-align:center;color:#8a9bc0;margin-bottom:40px}
-
-/* Cards — mfc: very rounded, lift on hover */
-[data-style="mfc"] .card{background:#fff;border:1px solid #eef2f7;border-radius:16px;overflow:hidden;transition:.3s}
-[data-style="mfc"] .card:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(36,54,92,.08)}
-[data-style="mfc"] .card-img{height:190px;background:#f0f3f9;display:flex;align-items:center;justify-content:center;position:relative}
-[data-style="mfc"] .card-img svg{width:48px;height:48px;fill:#7a8bb0;opacity:.4}
-[data-style="mfc"] .card-badge{position:absolute;top:12px;left:12px;background:#a82319;color:#fff;padding:4px 14px;border-radius:10px;font-size:.72rem;font-weight:700}
-[data-style="mfc"] .card-body{padding:20px}
-[data-style="mfc"] .card-body h3{font-size:.95rem;font-weight:700;color:#24365c;margin-bottom:4px}
-[data-style="mfc"] .card-body p{font-size:.82rem;color:#8a9bc0}
-[data-style="mfc"] .card-price{font-size:1.05rem;font-weight:700;color:#a82319;margin-top:8px}
-
-/* Services — mfc */
-[data-style="mfc"] .service-card{display:flex;gap:16px;padding:24px;background:#fff;border:1px solid #eef2f7;border-radius:16px;transition:.3s}
-[data-style="mfc"] .service-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(36,54,92,.06)}
-[data-style="mfc"] .service-icon{width:52px;height:52px;background:rgba(168,35,25,.08);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-[data-style="mfc"] .service-icon svg{width:24px;height:24px;fill:#a82319}
-[data-style="mfc"] .service-info h3{font-size:.92rem;font-weight:700;color:#24365c;margin-bottom:2px}
-[data-style="mfc"] .service-info p{font-size:.82rem;color:#8a9bc0}
-
-/* USP — mfc */
-[data-style="mfc"] .usp-bar{background:#24365c;padding:24px 0}
-[data-style="mfc"] .usp-list{display:flex;justify-content:center;flex-wrap:wrap;gap:36px}
-[data-style="mfc"] .usp-item{color:#cdd6e8;font-size:.88rem;display:flex;align-items:center;gap:8px}
-[data-style="mfc"] .usp-item svg{width:20px;height:20px;fill:#e86b62}
-
-/* Branches — mfc */
-[data-style="mfc"] .branch-card{background:#fff;border:1px solid #eef2f7;padding:20px;border-radius:14px;transition:.3s}
-[data-style="mfc"] .branch-card:hover{box-shadow:0 4px 16px rgba(36,54,92,.06)}
-[data-style="mfc"] .branch-card .district{font-size:.72rem;color:#a82319;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
-[data-style="mfc"] .branch-card h4{font-size:.9rem;color:#24365c}
-[data-style="mfc"] .branch-card p{font-size:.82rem;color:#8a9bc0}
-
-/* About — mfc */
-[data-style="mfc"] .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-[data-style="mfc"] .stat-box{background:#f0f3f9;border-radius:14px;padding:22px;text-align:center}
-[data-style="mfc"] .stat-box .num{font-size:1.8rem;font-weight:800;color:#a82319}
-[data-style="mfc"] .stat-box .label{font-size:.78rem;color:#8a9bc0}
-[data-style="mfc"] .about-img{height:300px;background:#f0f3f9;border-radius:16px;display:flex;align-items:center;justify-content:center}
-[data-style="mfc"] .about-img svg{width:80px;height:80px;fill:#7a8bb0;opacity:.25}
-
-/* Footer — mfc */
-[data-style="mfc"] .footer{background:#24365c;color:#8a9bc0;padding:48px 0 0}
-[data-style="mfc"] .footer h4{color:#fff;font-size:.9rem;margin-bottom:14px}
-[data-style="mfc"] .footer a{color:#8a9bc0}
-[data-style="mfc"] .footer a:hover{color:#cdd6e8}
-[data-style="mfc"] .footer-bottom{margin-top:32px;padding:16px 0;border-top:1px solid rgba(255,255,255,.08);text-align:center;font-size:.78rem;color:#5b6a88}
-
-/* Contacts — mfc */
-[data-style="mfc"] .contact-form{background:#fff;border:1px solid #eef2f7;padding:32px;border-radius:16px}
-[data-style="mfc"] .contact-form h3{color:#24365c}
-[data-style="mfc"] .form-group input,[data-style="mfc"] .form-group textarea{border:1px solid #e0e6ef;border-radius:12px;padding:12px;background:#f8f9fc;color:#24365c;font-size:.9rem;width:100%;font-family:inherit;transition:.2s}
-[data-style="mfc"] .form-group input:focus,[data-style="mfc"] .form-group textarea:focus{border-color:#a82319;outline:none;background:#fff}
-[data-style="mfc"] .form-group label{font-size:.8rem;color:#8a9bc0;display:block;margin-bottom:4px}
-[data-style="mfc"] .form-group{margin-bottom:14px}
-
-/* Cat tabs — mfc */
-[data-style="mfc"] .cat-tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:32px}
-[data-style="mfc"] .cat-tab{padding:10px 22px;font-size:.85rem;cursor:pointer;border:1px solid #eef2f7;border-radius:12px;color:#5b6a88;transition:.3s;background:#fff}
-[data-style="mfc"] .cat-tab:hover,[data-style="mfc"] .cat-tab.active{background:#a82319;color:#fff;border-color:#a82319;box-shadow:0 4px 12px rgba(168,35,25,.2)}
-
-/* Articles — mfc */
-[data-style="mfc"] .article-item{padding:16px 20px;border-radius:12px;background:#fff;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;border:1px solid #eef2f7;transition:.2s}
-[data-style="mfc"] .article-item:hover{box-shadow:0 4px 12px rgba(36,54,92,.05);transform:translateX(4px)}
-[data-style="mfc"] .article-item h4{font-size:.92rem;color:#24365c}
-[data-style="mfc"] .article-item span{color:#a82319;font-size:1.1rem}
-
-/* MFC — brand override (Вечность174 colors) */
-[data-style="mfc"][data-brand="vechnost"] .header-top{background:#c41017}
-[data-style="mfc"][data-brand="vechnost"] .hero{background:linear-gradient(160deg,#5a0008 0%,#8b0a10 60%,#3a0005 100%)}
-[data-style="mfc"][data-brand="vechnost"] .hero::before{background:radial-gradient(circle,rgba(254,254,0,.08) 0%,transparent 70%)}
-[data-style="mfc"][data-brand="vechnost"] .btn{background:#e30613;box-shadow:0 8px 24px rgba(227,6,19,.25)}
-[data-style="mfc"][data-brand="vechnost"] .btn:hover{background:#c41017;box-shadow:0 12px 28px rgba(227,6,19,.35)}
-[data-style="mfc"][data-brand="vechnost"] .btn-outline{border-color:#e30613;color:#e30613}
-[data-style="mfc"][data-brand="vechnost"] .btn-outline:hover{background:#e30613;color:#fff}
-[data-style="mfc"][data-brand="vechnost"] .nav-item>a:hover,[data-style="mfc"][data-brand="vechnost"] .nav-item>a.active{color:#e30613;border-bottom-color:#e30613}
-[data-style="mfc"][data-brand="vechnost"] .card-badge{background:#e30613}
-[data-style="mfc"][data-brand="vechnost"] .card-price{color:#e30613}
-[data-style="mfc"][data-brand="vechnost"] .service-icon{background:rgba(227,6,19,.08)}
-[data-style="mfc"][data-brand="vechnost"] .service-icon svg{fill:#e30613}
-[data-style="mfc"][data-brand="vechnost"] .stat-box .num{color:#e30613}
-[data-style="mfc"][data-brand="vechnost"] .branch-card .district{color:#e30613}
-[data-style="mfc"][data-brand="vechnost"] .usp-bar{background:#c41017}
-[data-style="mfc"][data-brand="vechnost"] .usp-item svg{fill:#ffe066}
-[data-style="mfc"][data-brand="vechnost"] .usp-item{color:#fff}
-[data-style="mfc"][data-brand="vechnost"] .cat-tab:hover,[data-style="mfc"][data-brand="vechnost"] .cat-tab.active{background:#e30613;border-color:#e30613;box-shadow:0 4px 12px rgba(227,6,19,.2)}
-[data-style="mfc"][data-brand="vechnost"] .article-item span{color:#e30613}
-[data-style="mfc"][data-brand="vechnost"] .footer{background:#5a0008}
-[data-style="mfc"][data-brand="vechnost"] .footer a:hover{color:#ff6b6b}
-[data-style="mfc"][data-brand="vechnost"] .price-card:hover{border-color:rgba(227,6,19,.4)}
-[data-style="mfc"][data-brand="vechnost"] .dropdown a:hover{color:#e30613}
-[data-style="mfc"][data-brand="vechnost"] .form-group input:focus,[data-style="mfc"][data-brand="vechnost"] .form-group textarea:focus{border-color:#e30613}
-[data-style="mfc"][data-brand="vechnost"] .section-alt{background:#fff5f5}
-
-/* ========== SHARED GRIDS ========== */
-.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.about-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
-.footer ul li{margin-bottom:7px;font-size:.85rem}
-.footer-about p{font-size:.88rem;line-height:1.7;margin-bottom:14px}
-.breadcrumb{padding:14px 0;font-size:.84rem;color:#999}
-.breadcrumb a{color:#999}.breadcrumb a:hover{opacity:.7}
-.breadcrumb span{margin:0 6px}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px}
-.contact-info-item{display:flex;gap:14px;margin-bottom:18px}
-.contact-info-item .ci-icon{flex:0 0 42px;height:42px;display:flex;align-items:center;justify-content:center}
-.form-group textarea{height:100px;resize:vertical}
-.map-placeholder{background:rgba(128,128,128,.08);border:1px dashed rgba(128,128,128,.2);border-radius:8px;height:260px;display:flex;align-items:center;justify-content:center;color:#999;font-size:.9rem;margin-top:16px}
-.hero-slider{display:flex;overflow:hidden}
-@media(max-width:900px){.grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}.price-cards{flex-direction:column !important;flex:none !important;width:100%}.hero-slide .container{flex-direction:column !important}.footer-grid{grid-template-columns:1fr 1fr}.about-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}}
-@media(max-width:600px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.header-top{font-size:.72rem}.hero-info h1{font-size:1.6rem !important}}
-
-/* Shared icon styling for contact items */
-[data-style="dolg"] .ci-icon{background:#f0ead8}
-[data-style="dolg"] .ci-icon svg{width:20px;height:20px;fill:#c5a73c}
-[data-style="ritual"] .ci-icon{background:#fdf5f4;border-radius:6px}
-[data-style="ritual"] .ci-icon svg{width:20px;height:20px;fill:#aa5c58}
-[data-style="mfc"] .ci-icon{background:rgba(168,35,25,.08);border-radius:12px}
-[data-style="mfc"] .ci-icon svg{width:20px;height:20px;fill:#a82319}
-[data-style="dolg"][data-brand="vechnost"] .ci-icon{background:#fde8e8}
-[data-style="dolg"][data-brand="vechnost"] .ci-icon svg{fill:#e30613}
-[data-style="ritual"][data-brand="vechnost"] .ci-icon{background:#fde8e8}
-[data-style="ritual"][data-brand="vechnost"] .ci-icon svg{fill:#e30613}
-[data-style="mfc"][data-brand="vechnost"] .ci-icon{background:rgba(227,6,19,.08)}
-[data-style="mfc"][data-brand="vechnost"] .ci-icon svg{fill:#e30613}
-
-.contact-info-item h4{font-size:.9rem;margin-bottom:2px}
-.contact-info-item p{font-size:.85rem;color:#888}
-
-/* ========== SETTINGS PANEL ========== */
-.settings-btn{position:fixed;bottom:24px;left:24px;z-index:999;width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,.25);transition:.2s}
-.settings-btn:hover{transform:scale(1.08)}
-.settings-btn svg{width:24px;height:24px;fill:currentColor}
-[data-style="dolg"] .settings-btn{background:#d4a843;color:#222}
-[data-style="ritual"] .settings-btn{background:#5a9e5f;color:#fff}
-[data-style="mfc"] .settings-btn{background:#a82319;color:#fff}
-[data-style="dolg"][data-brand="vechnost"] .settings-btn{background:#e30613;color:#fff}
-[data-style="ritual"][data-brand="vechnost"] .settings-btn{background:#e30613;color:#fff}
-[data-style="mfc"][data-brand="vechnost"] .settings-btn{background:#e30613;color:#fff}
-
-.settings-panel{position:fixed;bottom:90px;left:24px;z-index:998;background:#fff;border:1px solid #eee;border-radius:16px;padding:24px;width:340px;box-shadow:0 12px 48px rgba(0,0,0,.15);transform:translateY(10px);opacity:0;visibility:hidden;transition:.3s}
-.settings-panel.open{transform:translateY(0);opacity:1;visibility:visible}
-.settings-panel h3{font-size:1rem;margin-bottom:16px;color:#333}
-.style-option{display:flex;align-items:center;gap:12px;padding:14px;border:2px solid #eee;border-radius:12px;margin-bottom:10px;cursor:pointer;transition:.2s}
-.style-option:hover{background:#f8f8f8}
-.style-option.selected{border-color:#a82319;background:#fdf5f5}
-.style-swatch{display:flex;gap:3px}
-.style-swatch span{width:16px;height:16px;border-radius:4px;border:1px solid rgba(0,0,0,.08)}
-.style-label{font-size:.9rem;font-weight:700;color:#333}
-.style-desc{font-size:.75rem;color:#999;margin-top:1px}
-.brand-toggle{display:flex;align-items:center;gap:10px;margin-top:16px;padding:12px;background:#f8f8f8;border-radius:10px;cursor:pointer;transition:.2s}
-.brand-toggle:hover{background:#f0f0f0}
-.brand-toggle input{accent-color:#e30613;width:18px;height:18px}
-.brand-toggle .bt-label{font-size:.88rem;font-weight:600;color:#333}
-.brand-toggle .bt-desc{font-size:.75rem;color:#999}
-.brand-toggle .bt-colors{display:flex;gap:3px;margin-left:auto}
-.brand-toggle .bt-colors span{width:14px;height:14px;border-radius:3px;border:1px solid rgba(0,0,0,.08)}
-
-/* Animations */
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.page.active .section{animation:fadeUp .4s ease}
+  .footer-hub{text-align:center;padding:20px;color:#999;font-size:.78rem;border-top:1px solid #222}
 </style>
 </head>
-<body data-style="dolg" data-brand="original">
+<body>
 
-<!-- ===== HEADER ===== -->
-<header class="header">
-  <div class="container">
-    <div class="header-top">
-      <span>ул. Клары Цеткин 13, Челябинск &nbsp;·&nbsp; <a href="mailto:simpson07_78@mail.ru">simpson07_78@mail.ru</a></span>
-      <span style="float:right">Офисы: 09:00–17:00 · Диспетчерская: <strong style="color:#fff">круглосуточно</strong></span>
+<div class="hub" id="hub">
+  <h1>Вечность — 3 варианта дизайна</h1>
+  <p class="sub">Кликните на вариант, чтобы открыть на весь экран. Внутри работает навигация по страницам.</p>
+
+  <div class="cards">
+    <div class="card" onclick="openStyle(1)">
+      <div class="card-bg"><iframe src="templates/style1.html" loading="lazy" tabindex="-1" sandbox="allow-scripts allow-same-origin"></iframe></div>
+      <div class="card-info">
+        <h2>1. Типографический</h2>
+        <p>Жирная типографика вместо изображений. Красные поля, Big Shoulders 15vw, цветовые главы. Как выставочный постер.</p>
+        <div class="ref">По направлению taste-skill: type-only-statement</div>
+      </div>
+      <div class="overlay"><span>Открыть</span></div>
     </div>
-    <div class="header-main">
-      <div class="logo">
-        ВЕЧНОСТЬ
-        <em>ритуальные услуги с 1998 года</em>
+
+    <div class="card" onclick="openStyle(2)">
+      <div class="card-bg"><iframe src="templates/style2.html" loading="lazy" tabindex="-1" sandbox="allow-scripts allow-same-origin"></iframe></div>
+      <div class="card-info">
+        <h2>2. Тихий инструмент</h2>
+        <p>Радикальная сдержанность. Узкая колонка 480px, Work Sans 300, огромное пустое пространство. Как дорогая арт-книга.</p>
+        <div class="ref">По направлению taste-skill: quiet-instrument</div>
       </div>
-      <div class="header-phones" style="text-align:right">
-        <a href="tel:+73512640056">+7 (351) 264-00-56</a>
-        <a href="tel:+73512476677">+7 (351) 247-66-77</a>
-        <small>Единая справочная 24/7</small>
+      <div class="overlay"><span>Открыть</span></div>
+    </div>
+
+    <div class="card" onclick="openStyle(3)">
+      <div class="card-bg"><iframe src="templates/style3.html" loading="lazy" tabindex="-1" sandbox="allow-scripts allow-same-origin"></iframe></div>
+      <div class="card-info">
+        <h2>3. Один мотив — Крест</h2>
+        <p>Крест как единственная форма на всей странице: маска фото, кнопки, буллеты, разделители. Тёмно-синий + розовый.</p>
+        <div class="ref">По направлению taste-skill: one-motif</div>
       </div>
+      <div class="overlay"><span>Открыть</span></div>
     </div>
   </div>
-</header>
+</div>
 
-<!-- ===== NAV ===== -->
-<nav class="nav">
-  <div class="container">
-    <ul class="nav-list" id="main-nav">
-      <li class="nav-item"><a href="#" onclick="showPage('home')" class="active" data-page="home">Главная</a></li>
-      <li class="nav-item">
-        <a href="#" onclick="showPage('catalog')" data-page="catalog">Каталог</a>
-        <div class="dropdown">
-          <a href="#" onclick="showPage('catalog','venki')">Ритуальные венки</a>
-          <a href="#" onclick="showPage('catalog','groby')">Гробы</a>
-          <a href="#" onclick="showPage('catalog','pamyatniki')">Памятники</a>
-          <a href="#" onclick="showPage('catalog','kresty')">Кресты</a>
-          <a href="#" onclick="showPage('catalog','tekstil')">Текстиль</a>
-          <a href="#" onclick="showPage('catalog','korziny')">Корзины</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a href="#" onclick="showPage('services')" data-page="services">Услуги</a>
-        <div class="dropdown">
-          <a href="#" onclick="showPage('services')">Организация похорон</a>
-          <a href="#" onclick="showPage('services')">Кремация</a>
-          <a href="#" onclick="showPage('services')">Перевозка</a>
-          <a href="#" onclick="showPage('services')">Груз 200</a>
-          <a href="#" onclick="showPage('services')">Копка могилы</a>
-          <a href="#" onclick="showPage('services')">Документы</a>
-        </div>
-      </li>
-      <li class="nav-item"><a href="#" onclick="showPage('about')" data-page="about">О компании</a></li>
-      <li class="nav-item"><a href="#" onclick="showPage('articles')" data-page="articles">Статьи</a></li>
-      <li class="nav-item"><a href="#" onclick="showPage('contacts')" data-page="contacts">Контакты</a></li>
-    </ul>
+<div class="fullscreen" id="fullscreen">
+  <div class="toolbar">
+    <button class="back" onclick="closeStyle()">← Назад</button>
+    <span class="title" id="fs-title"></span>
+    <div class="switcher">
+      <button class="sw-btn" onclick="switchStyle(1)" id="sw1">1. Типографический</button>
+      <button class="sw-btn" onclick="switchStyle(2)" id="sw2">2. Тихий</button>
+      <button class="sw-btn" onclick="switchStyle(3)" id="sw3">3. Крест</button>
+    </div>
   </div>
-</nav>
-
-<!-- ===== PAGE: HOME ===== -->
-<div id="page-home" class="page active">
-  <section class="hero">
-    <div class="hero-slider" id="hero-slider">
-      <div class="hero-slide">
-        <div class="container">
-          <div class="hero-info">
-            <h1>Организация похорон в&nbsp;Челябинске</h1>
-            <p>Помощь в любое время дня и ночи. Бесплатный выезд агента, оформление документов, полная организация церемонии.</p>
-            <a href="tel:+73512476677" class="btn">Позвонить: +7 (351) 247-66-77</a>
-          </div>
-          <div class="price-cards">
-            <div class="price-card"><h3>Социальные</h3><div class="price">от 12 900 <small>руб.</small></div><p>Минимальный пакет</p></div>
-            <div class="price-card"><h3>Эконом</h3><div class="price">от 24 900 <small>руб.</small></div><p>Стандартные услуги</p></div>
-            <div class="price-card"><h3>Стандарт</h3><div class="price">от 44 900 <small>руб.</small></div><p>Полная организация</p></div>
-            <div class="price-card"><h3>Премиум</h3><div class="price">от 79 900 <small>руб.</small></div><p>VIP-обслуживание</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="usp-bar">
-    <div class="container">
-      <div class="usp-list">
-        <div class="usp-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> С 1998 года</div>
-        <div class="usp-item"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg> Круглосуточно 24/7</div>
-        <div class="usp-item"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg> 6 филиалов в городе</div>
-        <div class="usp-item"><svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5a2 2 0 01-2-2V5c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v1h-9a2 2 0 00-2 2v8a2 2 0 002 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg> Рассрочка</div>
-        <div class="usp-item"><svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5z"/></svg> Своё производство</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">Наши услуги</h2>
-      <p class="section-subtitle">Полный спектр ритуальных услуг с соблюдением всех традиций</p>
-      <div class="grid-3">
-        <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div><div class="service-info"><h3>Ритуальные бригады</h3><p>Бригада 2+ специалистов с соблюдением траурного этикета</p></div></div>
-        <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 16H7v-1h10v1zm0-3H7v-1h10v1zm0-3H7V7h10v5z"/></svg></div><div class="service-info"><h3>Оформление документов</h3><p>Быстрое оформление всех документов после смерти</p></div></div>
-        <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zM5 11l1.5-4.5h11L19 11H5z"/></svg></div><div class="service-info"><h3>Перевозка тела</h3><p>Спецтранспорт, круглосуточно по Челябинску</p></div></div>
-        <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div><div class="service-info"><h3>Организация похорон</h3><p>Полная организация от документов до церемонии</p></div></div>
-        <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19a2 2 0 002 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2z"/></svg></div><div class="service-info"><h3>Кремация</h3><p>Организация и проведение с соблюдением требований</p></div></div>
-        <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10z"/></svg></div><div class="service-info"><h3>Церемониймейстер</h3><p>Профессиональное ведение церемонии прощания</p></div></div>
-      </div>
-      <div style="text-align:center;margin-top:28px"><a href="#" onclick="showPage('services')" class="btn btn-outline">Все услуги →</a></div>
-    </div>
-  </section>
-
-  <section class="section section-alt">
-    <div class="container">
-      <h2 class="section-title">Каталог товаров</h2>
-      <p class="section-subtitle">Собственное производство ритуальной атрибутики</p>
-      <div class="grid-4">
-        <div class="card" onclick="showPage('catalog','venki')" style="cursor:pointer"><div class="card-img"><svg viewBox="0 0 24 24"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5l-.02-.19c.4.28.89.44 1.42.44 1.38 0 2.5-1.12 2.5-2.5 0-1-.59-1.85-1.43-2.25.84-.4 1.43-1.25 1.43-2.25 0-1.38-1.12-2.5-2.5-2.5-.53 0-1.01.16-1.42.44l.02-.19C14.5 2.12 13.38 1 12 1S9.5 2.12 9.5 3.5l.02.19c-.4-.28-.89-.44-1.42-.44-1.38 0-2.5 1.12-2.5 2.5 0 1 .59 1.85 1.43 2.25-.84.4-1.43 1.25-1.43 2.25zM12 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5S9.5 9.38 9.5 8s1.12-2.5 2.5-2.5zM3 13c0 4.97 4.03 9 9 9-4.97 0-9-4.03-9-9z"/></svg></div><div class="card-body"><h3>Ритуальные венки</h3><p>от 1 800 руб.</p></div></div>
-        <div class="card" onclick="showPage('catalog','groby')" style="cursor:pointer"><div class="card-img"><svg viewBox="0 0 24 24"><path d="M4 6h16v2H4V6zm0 4h16v8H4v-8zm2 2v4h12v-4H6z"/></svg></div><div class="card-body"><h3>Гробы</h3><p>от 6 500 руб.</p></div></div>
-        <div class="card" onclick="showPage('catalog','pamyatniki')" style="cursor:pointer"><div class="card-img"><svg viewBox="0 0 24 24"><path d="M6 2v6h2V6h2V2H6zm4 0v6h2V6h2V2h-4zm4 0v6h2V6h2V2h-4zM3 8v14h18V8H3zm16 12H5V10h14v10z"/></svg></div><div class="card-body"><h3>Памятники</h3><p>По запросу</p></div></div>
-        <div class="card" onclick="showPage('catalog','kresty')" style="cursor:pointer"><div class="card-img"><svg viewBox="0 0 24 24"><path d="M9 2v5H4v4h5v11h6V11h5V7h-5V2H9z"/></svg></div><div class="card-body"><h3>Кресты</h3><p>от 2 000 руб.</p></div></div>
-        <div class="card" onclick="showPage('catalog','tekstil')" style="cursor:pointer"><div class="card-img"><svg viewBox="0 0 24 24"><path d="M19.44 3.11c-.35-.18-.76-.06-.96.28l-2.38 4.24L3 12.23V20a3 3 0 003 3h12a3 3 0 003-3v-7.77L17.44 8.05l2.24-3.98a.73.73 0 00-.24-.96z"/></svg></div><div class="card-body"><h3>Текстиль</h3><p>от 2 000 руб.</p></div></div>
-        <div class="card" onclick="showPage('catalog','korziny')" style="cursor:pointer"><div class="card-img"><svg viewBox="0 0 24 24"><path d="M22 9h-4.79l-4.38-6.56a.997.997 0 00-1.66 0L6.79 9H2c-.55 0-1 .45-1 1 0 .09.01.18.04.27l2.54 9.27c.23.84 1 1.46 1.92 1.46h13c.92 0 1.69-.62 1.93-1.46l2.54-9.27L23 10c0-.55-.45-1-1-1z"/></svg></div><div class="card-body"><h3>Корзины</h3><p>от 1 000 руб.</p></div></div>
-        <div class="card" onclick="showPage('catalog','tablichki')" style="cursor:pointer"><div class="card-img"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div><div class="card-body"><h3>Таблички</h3><p>Именные</p></div></div>
-        <div class="card" onclick="showPage('catalog','lenty')" style="cursor:pointer"><div class="card-img"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg></div><div class="card-body"><h3>Траурные ленты</h3><p>С надписью</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="about-grid">
-        <div>
-          <h2 class="section-title" style="text-align:left">О компании «Вечность»</h2>
-          <p style="margin:12px 0">Компания создана в <strong>1998 году</strong> в Челябинске. Действует в строгом соответствии с ФЗ «О погребении и похоронном деле».</p>
-          <p style="margin:12px 0">Большой штат квалифицированных сотрудников, обширный парк спецтранспорта, собственное производство гробов, венков, памятников.</p>
-          <div class="about-stats">
-            <div class="stat-box"><div class="num">25+</div><div class="label">лет опыта</div></div>
-            <div class="stat-box"><div class="num">6</div><div class="label">филиалов</div></div>
-            <div class="stat-box"><div class="num">24/7</div><div class="label">на связи</div></div>
-            <div class="stat-box"><div class="num">1000+</div><div class="label">товаров</div></div>
-          </div>
-        </div>
-        <div class="about-img"><svg viewBox="0 0 24 24"><path d="M12 2C9.5 2 8 4.5 8 7c0 2 1.5 3.5 3 5v7a1 1 0 002 0v-7c1.5-1.5 3-3 3-5 0-2.5-1.5-5-4-5z"/></svg></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-alt">
-    <div class="container">
-      <h2 class="section-title">Филиалы</h2>
-      <p class="section-subtitle">6 офисов в каждом районе Челябинска</p>
-      <div class="grid-3">
-        <div class="branch-card"><div class="district">Центральный</div><h4>Клары Цеткин, 13</h4><p>Главный офис</p></div>
-        <div class="branch-card"><div class="district">Центральный</div><h4>Варненская, 4/1</h4><p>Салон ритуальных услуг</p></div>
-        <div class="branch-card"><div class="district">Металлургический</div><h4>Сталеваров, 70</h4><p>Салон ритуальных услуг</p></div>
-        <div class="branch-card"><div class="district">Курчатовский</div><h4>Ворошилова, 31</h4><p>Салон ритуальных услуг</p></div>
-        <div class="branch-card"><div class="district">Тракторозаводский</div><h4>Героев Танкограда, 63а</h4><p>Салон ритуальных услуг</p></div>
-        <div class="branch-card"><div class="district">Ленинский</div><h4>Гагарина, 38</h4><p>Салон ритуальных услуг</p></div>
-      </div>
-      <div class="map-placeholder">Интерактивная карта Яндекс.Карты</div>
-    </div>
-  </section>
+  <iframe id="fs-iframe" src="" allowfullscreen></iframe>
 </div>
 
-<!-- ===== PAGE: CATALOG ===== -->
-<div id="page-catalog" class="page">
-  <section class="section">
-    <div class="container">
-      <div class="breadcrumb"><a href="#" onclick="showPage('home')">Главная</a><span>›</span>Каталог</div>
-      <h2 class="section-title">Каталог товаров</h2>
-      <p class="section-subtitle">Собственное производство, гарантия качества</p>
-      <div class="cat-tabs">
-        <span class="cat-tab active" onclick="filterCat('all',this)">Все</span>
-        <span class="cat-tab" onclick="filterCat('venki',this)">Венки</span>
-        <span class="cat-tab" onclick="filterCat('groby',this)">Гробы</span>
-        <span class="cat-tab" onclick="filterCat('pamyatniki',this)">Памятники</span>
-        <span class="cat-tab" onclick="filterCat('kresty',this)">Кресты</span>
-        <span class="cat-tab" onclick="filterCat('tekstil',this)">Текстиль</span>
-        <span class="cat-tab" onclick="filterCat('korziny',this)">Корзины</span>
-      </div>
-      <div class="grid-3" id="cat-grid">
-        <div class="card ci" data-c="venki"><div class="card-img"><span class="card-badge">Венки</span><svg viewBox="0 0 24 24"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5l-.02-.19c.4.28.89.44 1.42.44 1.38 0 2.5-1.12 2.5-2.5 0-1-.59-1.85-1.43-2.25.84-.4 1.43-1.25 1.43-2.25 0-1.38-1.12-2.5-2.5-2.5-.53 0-1.01.16-1.42.44l.02-.19C14.5 2.12 13.38 1 12 1S9.5 2.12 9.5 3.5l.02.19c-.4-.28-.89-.44-1.42-.44-1.38 0-2.5 1.12-2.5 2.5 0 1 .59 1.85 1.43 2.25-.84.4-1.43 1.25-1.43 2.25zM12 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5S9.5 9.38 9.5 8s1.12-2.5 2.5-2.5zM3 13c0 4.97 4.03 9 9 9-4.97 0-9-4.03-9-9z"/></svg></div><div class="card-body"><h3>Венок Ажурный</h3><p>Искусственные цветы</p><div class="card-price">6 000 руб.</div></div></div>
-        <div class="card ci" data-c="venki"><div class="card-img"><span class="card-badge">Венки</span><svg viewBox="0 0 24 24"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5zM3 13c0 4.97 4.03 9 9 9-4.97 0-9-4.03-9-9z"/></svg></div><div class="card-body"><h3>Венок Бабочка</h3><p>Компактный</p><div class="card-price">1 800 руб.</div></div></div>
-        <div class="card ci" data-c="venki"><div class="card-img"><span class="card-badge">Венки</span><svg viewBox="0 0 24 24"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5zM3 13c0 4.97 4.03 9 9 9-4.97 0-9-4.03-9-9z"/></svg></div><div class="card-body"><h3>Венок Большой</h3><p>Торжественный</p><div class="card-price">3 500 руб.</div></div></div>
-        <div class="card ci" data-c="groby"><div class="card-img"><span class="card-badge">Гробы</span><svg viewBox="0 0 24 24"><path d="M4 6h16v2H4V6zm0 4h16v8H4v-8zm2 2v4h12v-4H6z"/></svg></div><div class="card-body"><h3>Гроб комбинированный</h3><p>Дерево + ткань</p><div class="card-price">27 000 руб.</div></div></div>
-        <div class="card ci" data-c="groby"><div class="card-img"><span class="card-badge">Гробы</span><svg viewBox="0 0 24 24"><path d="M4 6h16v2H4V6zm0 4h16v8H4v-8zm2 2v4h12v-4H6z"/></svg></div><div class="card-body"><h3>Гроб 2 крышки</h3><p>Лакированный, премиум</p><div class="card-price">65 000 руб.</div></div></div>
-        <div class="card ci" data-c="groby"><div class="card-img"><span class="card-badge">Гробы</span><svg viewBox="0 0 24 24"><path d="M4 6h16v2H4V6zm0 4h16v8H4v-8zm2 2v4h12v-4H6z"/></svg></div><div class="card-body"><h3>Гроб велюр</h3><p>Обитый велюром</p><div class="card-price">6 500 руб.</div></div></div>
-        <div class="card ci" data-c="pamyatniki"><div class="card-img"><span class="card-badge">Памятники</span><svg viewBox="0 0 24 24"><path d="M6 2v6h2V6h2V2H6zm4 0v6h2V6h2V2h-4zM3 8v14h18V8H3zm16 12H5V10h14v10z"/></svg></div><div class="card-body"><h3>Памятник из гранита</h3><p>Фигурный FZ-80</p><div class="card-price">По запросу</div></div></div>
-        <div class="card ci" data-c="pamyatniki"><div class="card-img"><span class="card-badge">Памятники</span><svg viewBox="0 0 24 24"><path d="M6 2v6h2V6h2V2H6zm4 0v6h2V6h2V2h-4zM3 8v14h18V8H3zm16 12H5V10h14v10z"/></svg></div><div class="card-body"><h3>Памятник бетон №3</h3><p>С надписью</p><div class="card-price">По запросу</div></div></div>
-        <div class="card ci" data-c="kresty"><div class="card-img"><span class="card-badge">Кресты</span><svg viewBox="0 0 24 24"><path d="M9 2v5H4v4h5v11h6V11h5V7h-5V2H9z"/></svg></div><div class="card-body"><h3>Крест брашированный</h3><p>Сосна, обработка</p><div class="card-price">6 500 руб.</div></div></div>
-        <div class="card ci" data-c="kresty"><div class="card-img"><span class="card-badge">Кресты</span><svg viewBox="0 0 24 24"><path d="M9 2v5H4v4h5v11h6V11h5V7h-5V2H9z"/></svg></div><div class="card-body"><h3>Крест «Вечная память»</h3><p>С табличкой</p><div class="card-price">4 000 руб.</div></div></div>
-        <div class="card ci" data-c="tekstil"><div class="card-img"><span class="card-badge">Текстиль</span><svg viewBox="0 0 24 24"><path d="M19.44 3.11c-.35-.18-.76-.06-.96.28l-2.38 4.24L3 12.23V20a3 3 0 003 3h12a3 3 0 003-3v-7.77L17.44 8.05l2.24-3.98a.73.73 0 00-.24-.96z"/></svg></div><div class="card-body"><h3>Костюм мужской</h3><p>С рубашкой и галстуком</p><div class="card-price">4 000 руб.</div></div></div>
-        <div class="card ci" data-c="tekstil"><div class="card-img"><span class="card-badge">Текстиль</span><svg viewBox="0 0 24 24"><path d="M19.44 3.11c-.35-.18-.76-.06-.96.28l-2.38 4.24L3 12.23V20a3 3 0 003 3h12a3 3 0 003-3v-7.77L17.44 8.05l2.24-3.98a.73.73 0 00-.24-.96z"/></svg></div><div class="card-body"><h3>Комплект Архангел</h3><p>Покрывало + подушка</p><div class="card-price">5 000 руб.</div></div></div>
-        <div class="card ci" data-c="korziny"><div class="card-img"><span class="card-badge">Корзины</span><svg viewBox="0 0 24 24"><path d="M22 9h-4.79l-4.38-6.56a.997.997 0 00-1.66 0L6.79 9H2c-.55 0-1 .45-1 1 0 .09.01.18.04.27l2.54 9.27c.23.84 1 1.46 1.92 1.46h13c.92 0 1.69-.62 1.93-1.46l2.54-9.27L23 10c0-.55-.45-1-1-1z"/></svg></div><div class="card-body"><h3>Корзина Кремлёвская</h3><p>Большая, с цветами</p><div class="card-price">6 000 руб.</div></div></div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ===== PAGE: SERVICES ===== -->
-<div id="page-services" class="page">
-  <section class="section">
-    <div class="container">
-      <div class="breadcrumb"><a href="#" onclick="showPage('home')">Главная</a><span>›</span>Услуги</div>
-      <h2 class="section-title">Ритуальные услуги</h2>
-      <p class="section-subtitle">Полный спектр для достойного прощания</p>
-      <div class="grid-2">
-        <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3z"/></svg></div><div class="service-info"><h3>Организация похорон</h3><p>Полная организация от документов до церемонии. Агент приедет в течение часа.</p></div></div>
-        <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3z"/></svg></div><div class="service-info"><h3>Ритуальные бригады</h3><p>Бригада 2+ специалистов. Процедура с соблюдением этикета.</p></div></div>
-        <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div><div class="service-info"><h3>Оформление документов</h3><p>Быстрое оформление. Нужны для пособия и наследства.</p></div></div>
-        <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99z"/></svg></div><div class="service-info"><h3>Перевозка тела в морг</h3><p>Спецтранспорт, круглосуточно: 247-66-77 или 264-00-56.</p></div></div>
-        <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5z"/></svg></div><div class="service-info"><h3>Кремация</h3><p>Организация и проведение с соблюдением требований.</p></div></div>
-        <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12z"/></svg></div><div class="service-info"><h3>Церемониймейстер</h3><p>Профессиональное ведение церемонии прощания.</p></div></div>
-        <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg></div><div class="service-info"><h3>Копка могилы</h3><p>Стандартная — <strong>20 000 руб.</strong></p></div></div>
-        <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg></div><div class="service-info"><h3>Груз 200</h3><p>Перевозка на большие расстояния с документами.</p></div></div>
-        <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6z"/></svg></div><div class="service-info"><h3>Сингуматор (ритуальный лифт)</h3><p>Плавное опускание гроба.</p></div></div>
-        <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9z"/></svg></div><div class="service-info"><h3>Благоустройство захоронений</h3><p>Ограды, плитка, озеленение.</p></div></div>
-        <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M6 2v6h2V6h2V2H6zM3 8v14h18V8H3z"/></svg></div><div class="service-info"><h3>Изготовление памятников</h3><p>Гранит и бетон. Рассрочка.</p></div></div>
-        <div class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg></div><div class="service-info"><h3>Эксгумация</h3><p>С соблюдением закона и санитарных норм.</p></div></div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ===== PAGE: ABOUT ===== -->
-<div id="page-about" class="page">
-  <section class="section">
-    <div class="container">
-      <div class="breadcrumb"><a href="#" onclick="showPage('home')">Главная</a><span>›</span>О компании</div>
-      <h2 class="section-title">О компании «Вечность»</h2>
-      <div class="about-grid" style="margin-top:28px">
-        <div>
-          <p style="margin:12px 0">Компания создана в <strong>1998 году</strong> в Челябинске. Действует в полном соответствии с ФЗ № 8-ФЗ «О погребении и похоронном деле».</p>
-          <p style="margin:12px 0">За многолетний опыт работы положительно зарекомендовала себя. Большой штат квалифицированных сотрудников, обширный парк спецтранспорта, собственное производство гробов, венков, памятников.</p>
-          <p style="margin:12px 0">Офисы располагаются в каждом районе города для удобства заказчиков.</p>
-          <p style="margin:12px 0">Компания постоянно развивается. Мы дорожим репутацией и выполняем работу качественно.</p>
-          <div class="about-stats">
-            <div class="stat-box"><div class="num">1998</div><div class="label">год основания</div></div>
-            <div class="stat-box"><div class="num">6</div><div class="label">филиалов</div></div>
-            <div class="stat-box"><div class="num">24/7</div><div class="label">диспетчерская</div></div>
-            <div class="stat-box"><div class="num">25+</div><div class="label">лет работы</div></div>
-          </div>
-        </div>
-        <div class="about-img"><svg viewBox="0 0 24 24"><path d="M12 2C9.5 2 8 4.5 8 7c0 2 1.5 3.5 3 5v7a1 1 0 002 0v-7c1.5-1.5 3-3 3-5 0-2.5-1.5-5-4-5z"/></svg></div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ===== PAGE: ARTICLES ===== -->
-<div id="page-articles" class="page">
-  <section class="section">
-    <div class="container">
-      <div class="breadcrumb"><a href="#" onclick="showPage('home')">Главная</a><span>›</span>Статьи</div>
-      <h2 class="section-title">Полезные статьи</h2>
-      <p class="section-subtitle">Помощь с организацией похорон</p>
-      <div style="max-width:800px;margin:0 auto">
-        <div class="article-item"><h4>Памятники из мрамора</h4><span>→</span></div>
-        <div class="article-item"><h4>Фигурные памятники из гранита</h4><span>→</span></div>
-        <div class="article-item"><h4>Могильные кресты</h4><span>→</span></div>
-        <div class="article-item"><h4>Ритуальные таблички</h4><span>→</span></div>
-        <div class="article-item"><h4>Услуги ритуального агента</h4><span>→</span></div>
-        <div class="article-item"><h4>Уход за могилами</h4><span>→</span></div>
-        <div class="article-item"><h4>Катафалки</h4><span>→</span></div>
-        <div class="article-item"><h4>Как устроены траурные венки</h4><span>→</span></div>
-        <div class="article-item"><h4>Кремация в крематории</h4><span>→</span></div>
-        <div class="article-item"><h4>Изготовление надгробных памятников</h4><span>→</span></div>
-        <div class="article-item"><h4>Какие ритуальные услуги оказываются населению?</h4><span>→</span></div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ===== PAGE: CONTACTS ===== -->
-<div id="page-contacts" class="page">
-  <section class="section">
-    <div class="container">
-      <div class="breadcrumb"><a href="#" onclick="showPage('home')">Главная</a><span>›</span>Контакты</div>
-      <h2 class="section-title">Адреса и контакты</h2>
-      <p class="section-subtitle">ООО «ВЕЧНОСТЬ» — организация похорон и ритуальные услуги</p>
-      <div class="contact-grid">
-        <div>
-          <div class="contact-info-item"><div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div><div><h4>Телефоны</h4><p><a href="tel:+73512640056">+7 (351) 264-00-56</a><br><a href="tel:+73512476677">+7 (351) 247-66-77</a><br><small>Круглосуточная справочная</small></p></div></div>
-          <div class="contact-info-item"><div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div><div><h4>Почта</h4><p>simpson07_78@mail.ru</p></div></div>
-          <div class="contact-info-item"><div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></div><div><h4>Режим работы</h4><p>Офисы: 09:00–17:00 ежедневно<br>Диспетчерская: <strong>24/7</strong></p></div></div>
-          <h3 style="margin:24px 0 12px">Все филиалы</h3>
-          <div class="grid-2" style="gap:10px">
-            <div class="branch-card"><div class="district">Центральный</div><h4>Клары Цеткин, 13</h4></div>
-            <div class="branch-card"><div class="district">Центральный</div><h4>Варненская, 4/1</h4></div>
-            <div class="branch-card"><div class="district">Металлургический</div><h4>Сталеваров, 70</h4></div>
-            <div class="branch-card"><div class="district">Курчатовский</div><h4>Ворошилова, 31</h4></div>
-            <div class="branch-card"><div class="district">Тракторозаводский</div><h4>Героев Танкограда, 63а</h4></div>
-            <div class="branch-card"><div class="district">Ленинский</div><h4>Гагарина, 38</h4></div>
-          </div>
-        </div>
-        <div>
-          <div class="contact-form">
-            <h3>Обратная связь</h3>
-            <div class="form-group"><label>Ваше имя</label><input type="text" placeholder="Введите имя"></div>
-            <div class="form-group"><label>Телефон</label><input type="tel" placeholder="+7 (___) ___-__-__"></div>
-            <div class="form-group"><label>Сообщение</label><textarea placeholder="Вопрос или пожелание"></textarea></div>
-            <button class="btn" style="width:100%" onclick="alert('Демо-версия')">Отправить</button>
-          </div>
-          <div class="map-placeholder">Интерактивная карта</div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-about">
-        <h4>ВЕЧНОСТЬ</h4>
-        <p>Организация похорон и ритуальные услуги в Челябинске с 1998 года. Диспетчерская — круглосуточно.</p>
-        <a href="tel:+73512476677" style="font-size:1.15rem;color:#fff;font-weight:700">+7 (351) 247-66-77</a>
-      </div>
-      <div><h4>Каталог</h4><ul><li><a href="#" onclick="showPage('catalog','venki')">Венки</a></li><li><a href="#" onclick="showPage('catalog','groby')">Гробы</a></li><li><a href="#" onclick="showPage('catalog','pamyatniki')">Памятники</a></li><li><a href="#" onclick="showPage('catalog','kresty')">Кресты</a></li><li><a href="#" onclick="showPage('catalog','tekstil')">Текстиль</a></li><li><a href="#" onclick="showPage('catalog','korziny')">Корзины</a></li></ul></div>
-      <div><h4>Услуги</h4><ul><li><a href="#" onclick="showPage('services')">Организация похорон</a></li><li><a href="#" onclick="showPage('services')">Кремация</a></li><li><a href="#" onclick="showPage('services')">Транспорт</a></li><li><a href="#" onclick="showPage('services')">Груз 200</a></li><li><a href="#" onclick="showPage('services')">Копка могилы</a></li></ul></div>
-      <div><h4>Информация</h4><ul><li><a href="#" onclick="showPage('about')">О компании</a></li><li><a href="#" onclick="showPage('articles')">Статьи</a></li><li><a href="#" onclick="showPage('contacts')">Контакты</a></li></ul></div>
-    </div>
-    <div class="footer-bottom">&copy; 2013–2026. Организация похорон и ритуальные услуги. Не является публичной офертой.</div>
-  </div>
-</footer>
-
-<!-- ===== SETTINGS ===== -->
-<button class="settings-btn" onclick="toggleSettings()" title="Настройки">
-  <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 00.12-.61l-1.92-3.32a.488.488 0 00-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 00-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.49.49 0 00-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
-</button>
-
-<div class="settings-panel" id="sp">
-  <h3>Стиль оформления</h3>
-  <div class="style-option selected" onclick="setStyle('dolg',this)">
-    <div class="style-swatch"><span style="background:#3a3a2e"></span><span style="background:#d4a843"></span><span style="background:#f5f5f0"></span></div>
-    <div><div class="style-label">1. Корпоративный</div><div class="style-desc">По мотивам ooo-dolg.ru — острые углы, золото, слайдер тарифов, плотная верстка</div></div>
-  </div>
-  <div class="style-option" onclick="setStyle('ritual',this)">
-    <div class="style-swatch"><span style="background:#fff;border:1px solid #ddd"></span><span style="background:#aa5c58"></span><span style="background:#5a9e5f"></span></div>
-    <div><div class="style-label">2. Деловой</div><div class="style-desc">По мотивам chel.ritual.ru — бордовый + зелёные кнопки, Open Sans, airy</div></div>
-  </div>
-  <div class="style-option" onclick="setStyle('mfc',this)">
-    <div class="style-swatch"><span style="background:#24365c"></span><span style="background:#a82319"></span><span style="background:#f8f9fc"></span></div>
-    <div><div class="style-label">3. Современный</div><div class="style-desc">По мотивам mfc-ritual.ru — скруглённые карточки, тёмно-синий + красный, Golos Text</div></div>
-  </div>
-
-  <label class="brand-toggle" onclick="toggleBrand()">
-    <input type="checkbox" id="brand-cb">
-    <div>
-      <div class="bt-label">Цвета «Вечность174»</div>
-      <div class="bt-desc">Красный #E30613 + жёлтый #FEFE00</div>
-    </div>
-    <div class="bt-colors"><span style="background:#e30613"></span><span style="background:#fefe00"></span></div>
-  </label>
-</div>
+<div class="footer-hub">&copy; 2026 Вечность — ритуальные услуги в Челябинске. Дизайн-концепции.</div>
 
 <script>
-function showPage(p,sub){
-  document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
-  document.getElementById('page-'+p).classList.add('active');
-  document.querySelectorAll('.nav-item>a').forEach(a=>a.classList.toggle('active',a.dataset.page===p));
-  window.scrollTo({top:0,behavior:'smooth'});
-  if(p==='catalog'&&sub){setTimeout(()=>{filterCat(sub);document.querySelectorAll('.cat-tab').forEach(t=>{var m=sub.substring(0,4);t.classList.toggle('active',t.textContent.toLowerCase().indexOf(m)>-1)})},50)}
+const titles = {
+  1: '1. Типографический — type-only-statement',
+  2: '2. Тихий инструмент — quiet-instrument',
+  3: '3. Один мотив: Крест — one-motif'
+};
+const srcs = {1:'templates/style1.html',2:'templates/style2.html',3:'templates/style3.html'};
+let current = 0;
+
+function openStyle(n) {
+  current = n;
+  document.getElementById('fs-iframe').src = srcs[n];
+  document.getElementById('fs-title').textContent = titles[n];
+  document.getElementById('fullscreen').classList.add('active');
+  document.getElementById('hub').style.display = 'none';
+  updateSwitcher(n);
 }
-function filterCat(c,el){
-  document.querySelectorAll('.ci').forEach(i=>i.style.display=(c==='all'||i.dataset.c===c)?'':'none');
-  if(el){document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('active'));el.classList.add('active')}
+
+function closeStyle() {
+  document.getElementById('fullscreen').classList.remove('active');
+  document.getElementById('hub').style.display = '';
+  document.getElementById('fs-iframe').src = '';
 }
-function toggleSettings(){document.getElementById('sp').classList.toggle('open')}
-function setStyle(s,el){
-  document.body.setAttribute('data-style',s);
-  document.querySelectorAll('.style-option').forEach(o=>o.classList.remove('selected'));
-  el.classList.add('selected');
-  localStorage.setItem('vs',s);
+
+function switchStyle(n) {
+  current = n;
+  document.getElementById('fs-iframe').src = srcs[n];
+  document.getElementById('fs-title').textContent = titles[n];
+  updateSwitcher(n);
 }
-function toggleBrand(){
-  var cb=document.getElementById('brand-cb');
-  document.body.setAttribute('data-brand',cb.checked?'vechnost':'original');
-  localStorage.setItem('vb',cb.checked?'vechnost':'original');
+
+function updateSwitcher(n) {
+  document.querySelectorAll('.sw-btn').forEach((b,i) => b.classList.toggle('active', i+1===n));
 }
-document.addEventListener('click',function(e){var sp=document.getElementById('sp'),btn=document.querySelector('.settings-btn');if(!sp.contains(e.target)&&!btn.contains(e.target))sp.classList.remove('open')});
-(function(){
-  var s=localStorage.getItem('vs'),b=localStorage.getItem('vb');
-  if(s){document.body.setAttribute('data-style',s);document.querySelectorAll('.style-option').forEach((o,i)=>{var m={dolg:0,ritual:1,mfc:2};o.classList.toggle('selected',i===m[s])})}
-  if(b==='vechnost'){document.body.setAttribute('data-brand','vechnost');document.getElementById('brand-cb').checked=true}
-})();
+
+// Allow Escape to close fullscreen
+document.addEventListener('keydown', e => { if(e.key==='Escape' && current) closeStyle(); });
 </script>
 </body>
 </html>

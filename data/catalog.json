@@ -1,0 +1,102 @@
+[
+  {
+    "category": "venki",
+    "categoryName": "Ритуальные венки",
+    "categoryImage": "assets/img/Ritualnievenki-150x150h.png",
+    "products": [
+      { "name": "Венок Ажурный", "price": "6 000", "image": "assets/img/530a-250x250h.jpg" },
+      { "name": "Венок Бабочка", "price": "1 800", "image": "assets/img/180a-250x250h.jpg" },
+      { "name": "Венок Большой", "price": "3 500", "image": "assets/img/310a-250x250h.jpg" },
+      { "name": "Венок Розы", "price": "4 200", "image": "assets/img/320a-250x250h.jpg" },
+      { "name": "Венок Классический", "price": "2 500", "image": "assets/img/410a-250x250h.jpg" },
+      { "name": "Венок Памяти", "price": "3 800", "image": "assets/img/480a-250x250h.jpg" },
+      { "name": "Венок Вечная память", "price": "4 500", "image": "assets/img/490a-250x250h.jpg" },
+      { "name": "Венок Траурный", "price": "5 200", "image": "assets/img/540a-250x250h.jpg" },
+      { "name": "Венок Скорбь", "price": "3 000", "image": "assets/img/190a-250x250h.jpg" }
+    ]
+  },
+  {
+    "category": "groby",
+    "categoryName": "Гробы",
+    "categoryImage": "assets/img/Grobi-150x150h.png",
+    "products": [
+      { "name": "Гроб комбинированный", "price": "27 000", "image": "assets/img/NAG09295-250x250w.jpg" },
+      { "name": "Гроб 2 крышки", "price": "65 000", "image": "assets/img/NAG09347-250x250w.jpg" },
+      { "name": "Гроб Атлас", "price": "8 000", "image": "assets/img/NAG09508-250x250w.jpg" },
+      { "name": "Гроб Атлас в складку", "price": "10 000", "image": "assets/img/NAG09150-250x250w.jpg" },
+      { "name": "Гроб велюр", "price": "6 500", "image": "assets/img/NAG09186-250x250w.jpg" },
+      { "name": "Гроб Викинг", "price": "45 000", "image": "assets/img/NAG09211-250x250w.jpg" },
+      { "name": "Гроб лакированный", "price": "35 000", "image": "assets/img/NAG09367-250x250w.jpg" },
+      { "name": "Гроб обитый тканью", "price": "12 000", "image": "assets/img/NAG09433-250x250w.jpg" },
+      { "name": "Гроб обитый велюром", "price": "15 000", "image": "assets/img/NAG09483-250x250w.jpg" }
+    ]
+  },
+  {
+    "category": "pamyatniki",
+    "categoryName": "Памятники",
+    "categoryImage": "assets/img/Pamyatniki-150x150h.png",
+    "products": [
+      { "name": "Памятник гранит фигурный FZ-80", "price": "По запросу", "image": "assets/img/FigurnijFZ-801100-600-70-250x250.jpg" },
+      { "name": "Памятник бетон №1", "price": "По запросу", "image": "assets/img/Variant№1chistij-250x250.jpg" },
+      { "name": "Памятник бетон №1 с надписью", "price": "По запросу", "image": "assets/img/Variant№1snadpisyu-250x250.jpg" },
+      { "name": "Памятник бетон №3 с надписью", "price": "По запросу", "image": "assets/img/Variant№3snadpisyu-250x250.jpg" },
+      { "name": "Памятник бетон №10", "price": "По запросу", "image": "assets/img/Variant№10chistij-250x250.jpg" },
+      { "name": "Памятник бетон №10 с надписью", "price": "По запросу", "image": "assets/img/Variant№10snadpisyu-250x250.jpg" },
+      { "name": "Памятник бетон №11", "price": "По запросу", "image": "assets/img/Variant№11chistij-250x250.jpg" },
+      { "name": "Мрамор с гранитной плиткой", "price": "По запросу", "image": "assets/img/Mramorserijpryamojsgranitnojplitkoj1200-450-80-250x250.jpg" },
+      { "name": "Мрамор с фотокерамикой", "price": "По запросу", "image": "assets/img/Mramorserijsplechikamisfotokeramikoj900-400-80-250x250.jpg" }
+    ]
+  },
+  {
+    "category": "kresty",
+    "categoryName": "Кресты",
+    "categoryImage": "assets/img/Kresti-150x150h.png",
+    "products": [
+      { "name": "Крест брашированный", "price": "6 500", "image": null },
+      { "name": "Крест «Вечная память»", "price": "4 000", "image": null },
+      { "name": "Крест обожжённый №1", "price": "2 000", "image": null },
+      { "name": "Крест сосна окантовка", "price": "5 500", "image": null },
+      { "name": "Крест сосновый коричневый", "price": "5 000", "image": null },
+      { "name": "Крест сосновый тёмно-коричневый", "price": "5 500", "image": null }
+    ]
+  },
+  {
+    "category": "tekstil",
+    "categoryName": "Текстиль",
+    "categoryImage": "assets/img/Tekstil-150x150w.png",
+    "products": [
+      { "name": "Костюм мужской с рубашкой и галстуком", "price": "4 000", "image": null },
+      { "name": "Комплект Архангел", "price": "5 000", "image": null },
+      { "name": "Комплект Атлас гофре", "price": "2 000", "image": null },
+      { "name": "Комплект Атлас гофре с крестами", "price": "2 000", "image": null },
+      { "name": "Комплект Атлас детский с отворотом", "price": "2 000", "image": null },
+      { "name": "Комплект Атлас Крест", "price": "2 000", "image": null }
+    ]
+  },
+  {
+    "category": "korziny",
+    "categoryName": "Корзины",
+    "categoryImage": "assets/img/Korzini-150x150h.png",
+    "products": [
+      { "name": "Корзина Кремлёвская большая", "price": "6 000", "image": null },
+      { "name": "Корзина Кремлёвская малая", "price": "1 000", "image": null },
+      { "name": "Корзина Кремлёвская средняя", "price": "2 000", "image": null }
+    ]
+  },
+  {
+    "category": "tablichki",
+    "categoryName": "Таблички",
+    "categoryImage": "assets/img/Tablichki-150x150w.png",
+    "products": [
+      { "name": "Табличка именная", "price": "По запросу", "image": null }
+    ]
+  },
+  {
+    "category": "lenty",
+    "categoryName": "Траурные ленты",
+    "categoryImage": "assets/img/Traurnielenti-150x150h.png",
+    "products": [
+      { "name": "Траурная лента с надписью", "price": "По запросу", "image": null }
+    ]
+  }
+]
