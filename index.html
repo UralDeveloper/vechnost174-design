@@ -18,6 +18,11 @@ button{cursor:pointer;font-family:inherit;border:none}
 .container{max-width:1200px;margin:0 auto;padding:0 20px}
 .page{display:none}.page.active{display:block}
 
+/* ========== SHARED NAV BASE (positioning for all styles) ========== */
+.nav-item{position:relative}
+.nav-item .dropdown{display:none;position:absolute;top:100%;left:0;z-index:50;min-width:220px;padding:8px 0}
+.nav-item:hover>.dropdown{display:block}
+
 /* ========================================================================
    STYLE 1 — «ДОЛГ» (ooo-dolg.ru inspired)
    Корпоративный, плотный, золотисто-коричневый, острые углы, слайдер с ценами
