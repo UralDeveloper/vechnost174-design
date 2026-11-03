@@ -8,7 +8,6 @@
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:system-ui,-apple-system,sans-serif;background:#111;color:#eee;min-height:100vh;display:flex;flex-direction:column}
 
-  /* Hub screen */
   .hub{padding:40px 20px;max-width:1200px;margin:0 auto;width:100%;flex:1}
   .hub h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;margin-bottom:8px;letter-spacing:-.02em}
   .hub .sub{color:#999;font-size:1rem;margin-bottom:40px}
@@ -23,13 +22,12 @@
   .card-info{position:relative;z-index:1;padding:20px;background:linear-gradient(transparent,rgba(0,0,0,.85))}
   .card-info h2{font-size:1.3rem;font-weight:700;margin-bottom:4px}
   .card-info p{font-size:.85rem;color:#aaa;line-height:1.4}
-  .card-info .ref{font-size:.875rem;color:#aaa;margin-top:6px}
+  .card-info .ref{font-size:.875rem;color:#999;margin-top:6px;font-style:italic}
 
   .card .overlay{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.4);opacity:0;transition:opacity .3s}
   .card:hover .overlay{opacity:1}
   .overlay span{background:#fff;color:#111;padding:12px 28px;font-weight:700;font-size:.95rem;border-radius:6px}
 
-  /* Fullscreen view */
   .fullscreen{display:none;position:fixed;inset:0;z-index:100;background:#111}
   .fullscreen.active{display:flex;flex-direction:column}
   .fullscreen iframe{flex:1;border:none;width:100%}
@@ -42,7 +40,7 @@
   .toolbar .sw-btn:hover{background:#444;color:#fff}
   .toolbar .sw-btn.active{background:#E30613;color:#fff}
 
-  .footer-hub{text-align:center;padding:20px;color:#999;font-size:.78rem;border-top:1px solid #222}
+  .footer-hub{text-align:center;padding:20px;color:#999;font-size:.875rem;border-top:1px solid #222}
 </style>
 </head>
 <body>
@@ -55,9 +53,9 @@
     <div class="card" onclick="openStyle(1)">
       <div class="card-bg"><iframe src="templates/style1.html" loading="lazy" tabindex="-1" sandbox="allow-scripts allow-same-origin"></iframe></div>
       <div class="card-info">
-        <h2>1. Типографический</h2>
-        <p>Жирная типографика вместо изображений. Красные поля, Big Shoulders 15vw, цветовые главы. Как выставочный постер.</p>
-        <div class="ref">По направлению taste-skill: type-only-statement</div>
+        <h2>1. Классический бизнес</h2>
+        <p>Золотой акцент, фиксированный хедер, пакеты услуг, каталог. По мотивам ooo-dolg.ru.</p>
+        <div class="ref">Стиль: ooo-dolg.ru</div>
       </div>
       <div class="overlay"><span>Открыть</span></div>
     </div>
@@ -65,9 +63,9 @@
     <div class="card" onclick="openStyle(2)">
       <div class="card-bg"><iframe src="templates/style2.html" loading="lazy" tabindex="-1" sandbox="allow-scripts allow-same-origin"></iframe></div>
       <div class="card-info">
-        <h2>2. Тихий инструмент</h2>
-        <p>Радикальная сдержанность. Узкая колонка 480px, Work Sans 300, огромное пустое пространство. Как дорогая арт-книга.</p>
-        <div class="ref">По направлению taste-skill: quiet-instrument</div>
+        <h2>2. Тёмный + красно-коричневый</h2>
+        <p>Тёмный хедер, прайс-таблица с табами, сервисные карточки с иконками. По мотивам chel.ritual.ru.</p>
+        <div class="ref">Стиль: chel.ritual.ru</div>
       </div>
       <div class="overlay"><span>Открыть</span></div>
     </div>
@@ -75,9 +73,9 @@
     <div class="card" onclick="openStyle(3)">
       <div class="card-bg"><iframe src="templates/style3.html" loading="lazy" tabindex="-1" sandbox="allow-scripts allow-same-origin"></iframe></div>
       <div class="card-info">
-        <h2>3. Один мотив — Крест</h2>
-        <p>Крест как единственная форма на всей странице: маска фото, кнопки, буллеты, разделители. Тёмно-синий + розовый.</p>
-        <div class="ref">По направлению taste-skill: one-motif</div>
+        <h2>3. Современный</h2>
+        <p>Navy + красный, карточки с анимацией, тарифы, отзывы. По мотивам mfc-ritual.ru.</p>
+        <div class="ref">Стиль: chelyabinsk.mfc-ritual.ru</div>
       </div>
       <div class="overlay"><span>Открыть</span></div>
     </div>
@@ -89,9 +87,9 @@
     <button class="back" onclick="closeStyle()">← Назад</button>
     <span class="title" id="fs-title"></span>
     <div class="switcher">
-      <button class="sw-btn" onclick="switchStyle(1)" id="sw1">1. Типографический</button>
-      <button class="sw-btn" onclick="switchStyle(2)" id="sw2">2. Тихий</button>
-      <button class="sw-btn" onclick="switchStyle(3)" id="sw3">3. Крест</button>
+      <button class="sw-btn" onclick="switchStyle(1)" id="sw1">1. Классический</button>
+      <button class="sw-btn" onclick="switchStyle(2)" id="sw2">2. Тёмный</button>
+      <button class="sw-btn" onclick="switchStyle(3)" id="sw3">3. Современный</button>
     </div>
   </div>
   <iframe id="fs-iframe" src="" allowfullscreen></iframe>
@@ -101,9 +99,9 @@
 
 <script>
 const titles = {
-  1: '1. Типографический — type-only-statement',
-  2: '2. Тихий инструмент — quiet-instrument',
-  3: '3. Один мотив: Крест — one-motif'
+  1: '1. Классический бизнес — по мотивам ooo-dolg.ru',
+  2: '2. Тёмный + красно-коричневый — по мотивам chel.ritual.ru',
+  3: '3. Современный — по мотивам chelyabinsk.mfc-ritual.ru'
 };
 const srcs = {1:'templates/style1.html',2:'templates/style2.html',3:'templates/style3.html'};
 let current = 0;
@@ -134,7 +132,6 @@ function updateSwitcher(n) {
   document.querySelectorAll('.sw-btn').forEach((b,i) => b.classList.toggle('active', i+1===n));
 }
 
-// Allow Escape to close fullscreen
 document.addEventListener('keydown', e => { if(e.key==='Escape' && current) closeStyle(); });
 </script>
 </body>
